@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  
+    <item
+        android:title="Sign In"
+        android:id="@+id/signIn"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        />
+    <item
+        android:title="T &amp; C"
+        android:id="@+id/tcId"
+        android:icon="@drawable/terms"
+        />
+    <item
+        android:title="Privacy Policy"
+        android:id="@+id/privacyPolicyId"
+        android:icon="@drawable/policy"
+        />
+    <item
+        android:title="About"
+        android:id="@+id/aboutId"
+        android:icon="@drawable/about"
+        />
+    <item
+        android:title="Logout"
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_power_settings_new_black_24dp"
+        />
+
+
+</menu>

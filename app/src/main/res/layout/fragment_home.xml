@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".Activities.MainActivity"
+
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="@android:color/white"
+        >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                    <com.smarteist.autoimageslider.SliderView
+                        android:id="@+id/imageSlided"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:sliderAnimationDuration="600"
+                        app:sliderAutoCycleDirection="back_and_forth"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderCircularHandlerEnabled="true"
+                        app:sliderIndicatorAnimationDuration="600"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="15dp"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="3dp"
+                        app:sliderIndicatorRadius="2dp"
+                        app:sliderIndicatorSelectedColor="#5A5A5A"
+                        app:sliderIndicatorUnselectedColor="#FFF"
+                        app:sliderScrollTimeInSec="1"
+                        app:sliderStartAutoCycle="true"
+                        />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <include layout="@layout/user_info_layout"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/layerOne"
+
+
+                        >
+
+
+                        <com.google.android.material.tabs.TabLayout
+
+
+                            android:id="@+id/tab_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:tabIndicatorColor="@color/colorAccent"
+                            app:tabMaxWidth="130dp"
+                            app:tabMinWidth="130dp"
+                            app:tabMode="fixed"
+                            app:tabSelectedTextColor="@color/colorAccent"
+                            app:tabTextColor="@color/primary_text">
+
+
+                            <com.google.android.material.tabs.TabItem
+
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:text="Categories" />
+
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:text="Brands" />
+
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:text="Shops" />
+
+
+                        </com.google.android.material.tabs.TabLayout>
+
+
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/layerOne"
+                        android:id="@+id/layerTwo"
+                        >
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/productdetails_viewPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="600dp"
+
+                            >
+
+                        </androidx.viewpager.widget.ViewPager>
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/layerTwo">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/offerTitle"
+                            android:text="Recent Offers"
+                            android:paddingLeft="10dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+
+                        <TextView
+                            android:id="@+id/offerSeeAllProduct"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/offerRecyclerView"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toRightOf="@id/offerTitle"
+                            android:gravity="right"
+                            android:text="See All >>"
+                            android:textColor="@android:color/black"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="none"
+                            android:id="@+id/offerRecyclerView"
+                            android:layout_below="@id/offerTitle"/>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/recentProductTv"
+                            android:text="Recent Products"
+                            android:layout_alignParentRight="true"
+                            android:paddingLeft="10dp"
+                            android:layout_below="@+id/offerRecyclerView"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="50dp"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recentProductsRecycler"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            />
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
