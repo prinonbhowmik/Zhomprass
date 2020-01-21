@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".Activities.MainActivity"
-
-    >
+    tools:context=".Activities.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,9 +18,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-
-            >
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,10 +57,8 @@
 
                 </androidx.cardview.widget.CardView>
 
-
                 <include layout="@layout/user_info_layout"
                     />
-
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout"
@@ -222,15 +216,6 @@
 
 
     </LinearLayout>
-
-
-
-
-
-
-
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

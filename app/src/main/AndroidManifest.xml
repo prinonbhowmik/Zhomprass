@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.my.zhomprass_java">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.about"></activity>
+        <activity android:name=".Activities.SearchActivity"></activity>
+        <activity android:name=".Activities.CartActivity" />
+        <activity android:name=".Activities.OrderActivity" />
+        <activity android:name=".Activities.ZoomImageActivity" />
+        <activity android:name=".Activities.ProductsActivity" />
+        <activity android:name=".Activities.ShopActivity" />
+        <activity android:name=".Activities.BazarActivity" />
+        <activity android:name=".Activities.ThanaActivity" />
+        <activity android:name=".Activities.ThiredCategoryActivity" />
+        <activity android:name=".Activities.DistrictActivity" />
+        <activity android:name=".Activities.ProductsDetailsActivity" />
+        <activity android:name=".Activities.SubcategoryActivity" />
+        <activity android:name=".Activities.about" />
         <activity android:name=".Activities.PrivacyPolicy" />
         <activity android:name=".Activities.term_condition" />
         <activity android:name=".Activities.Signin" />

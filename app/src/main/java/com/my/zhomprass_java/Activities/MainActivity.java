@@ -8,8 +8,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -22,9 +25,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private NavigationView navigationView;
     private BottomNavigationView bottomNavigationView;
-    private MaterialSearchView searchView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private TextView search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +38,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         init();
 
-
         FragmentTransaction home = getSupportFragmentManager().beginTransaction();
         home.replace(R.id.fragment_container,new Home());
         home.commit();
 
         bottomNavOptions();
 
+        sharedPreferences = getSharedPreferences("Customer_Id",MODE_PRIVATE);
+        int id = sharedPreferences.getInt("cust_id",0);
 
+        if (id==0){
+            navigationView.getMenu().removeItem(R.id.logout);
+        }
+        if(id!=0){
+            navigationView.getMenu().removeItem(R.id.signIn);
+        }
 
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SearchActivity.class));
+            }
+        });
 
     }
 
@@ -61,10 +79,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         order.replace(R.id.fragment_container,new OrderFragment());
                         order.commit();
                         return true;
+                    case R.id.cartId:
+                        startActivity(new Intent(MainActivity.this,CartActivity.class));
 
                 }
-
-
 
                 return false;
             }
@@ -77,11 +95,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        searchView = findViewById(R.id.material_search_view);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        search = findViewById(R.id.search);
 
 
 
@@ -105,6 +123,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MainActivity.this,term_condition.class));
                 break;
             case R.id.logout:
+                sharedPreferences = getSharedPreferences("Customer_Id",MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                editor.remove("cust_id");
+                editor.apply();
+
                 Intent intent = new Intent(MainActivity.this, Signin.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
