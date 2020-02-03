@@ -11,7 +11,7 @@
     <dimen name="margin_auth_email_field">32dp</dimen>
     <dimen name="margin_default">8dp</dimen>
     <dimen name="text_btn_size">14sp</dimen>
-    <dimen name="corner_btn">24dp</dimen>
+    <dimen name="corner_btn">25dp</dimen>
     <dimen name="padding_default">8dp</dimen>
     <dimen name="margin_privacy_policy">40dp</dimen>
 
@@ -68,4 +68,8 @@
 
     <dimen name="input_field_height">40dp</dimen>
     <dimen name="input_field_margin">10dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="header_img_size">100dp</dimen>
+    <dimen name="layout_margin_default">10dp</dimen>
 </resources>

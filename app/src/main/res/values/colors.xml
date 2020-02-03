@@ -174,4 +174,10 @@
     <color name="colorTextORIcon">#FFFFFF</color>
     <color name="colorDivider">#EBEBEB</color>
     <color name="colorSecondaryText">#757575</color>
+   <color name="list_item_title">#fff</color>
+   <color name="list_background">#303030</color>
+   <color name="list_background_pressed">#F0F014</color>
+   <color name="list_divider">#272727</color>
+   <color name="counter_text_bg">#626262</color>
+   <color name="counter_text_color">#c5c4c4</color>
 </resources>

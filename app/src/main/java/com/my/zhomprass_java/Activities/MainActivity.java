@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.michaelgarnerdev.materialsearchview.MaterialSearchView;
+import com.my.zhomprass_java.Fragments.DashboardFragment;
 import com.my.zhomprass_java.Fragments.Home;
 import com.my.zhomprass_java.Fragments.OrderFragment;
 import com.my.zhomprass_java.R;
@@ -112,15 +113,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()){
             case R.id.signIn:
                 startActivity(new Intent(MainActivity.this,Signin.class));
+                drawerLayout.closeDrawers();
+                break;
+
+            case R.id.dashboard:
+                FragmentTransaction home1 = getSupportFragmentManager().beginTransaction();
+                home1.replace(R.id.fragment_container,new DashboardFragment());
+                home1.commit();
+                drawerLayout.closeDrawers();
+                return true;
+
+            case R.id.orderId:
+                FragmentTransaction order = getSupportFragmentManager().beginTransaction();
+                order.replace(R.id.fragment_container,new OrderFragment());
+                order.commit();
+                drawerLayout.closeDrawers();
+
+                return true;
+            case R.id.cartId:
+                startActivity(new Intent(MainActivity.this,CartActivity.class));
+                break;
+            case R.id.treeView:
+                startActivity(new Intent(MainActivity.this,TreeView.class));
+                drawerLayout.closeDrawers();
+                break;
+
+            case R.id.ecommerce:
+                startActivity(new Intent(MainActivity.this,Ecommerce.class));
+                drawerLayout.closeDrawers();
+                break;
+
+            case R.id.joinCustomer:
+                startActivity(new Intent(MainActivity.this,Customer.class));
+                drawerLayout.closeDrawers();
+                break;
+            case R.id.transaction:
+                startActivity(new Intent(MainActivity.this,Transaction.class));
+                drawerLayout.closeDrawers();
                 break;
             case R.id.tcId:
                 startActivity(new Intent(MainActivity.this,term_condition.class));
+                drawerLayout.closeDrawers();
                 break;
             case R.id.privacyPolicyId:
                 startActivity(new Intent(MainActivity.this,PrivacyPolicy.class));
+                drawerLayout.closeDrawers();
                 break;
             case R.id.aboutId:
-                startActivity(new Intent(MainActivity.this,term_condition.class));
+                startActivity(new Intent(MainActivity.this,about.class));
+                drawerLayout.closeDrawers();
                 break;
             case R.id.logout:
                 sharedPreferences = getSharedPreferences("Customer_Id",MODE_PRIVATE);

@@ -112,5 +112,8 @@ public interface ApiInterface {
     @GET("brand_list.php?")
     Call<List<BrandList>> searchBrand(@Query("brand_name") String name);
 
+    @GET("shop.php")
+    Call<List<ShopList>> searchShop(@Query("shop_name") String name);
+
 
 }

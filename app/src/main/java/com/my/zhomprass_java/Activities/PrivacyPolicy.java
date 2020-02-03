@@ -1,8 +1,10 @@
 package com.my.zhomprass_java.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -17,14 +19,15 @@ public class PrivacyPolicy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_privacy_policy);
 
-        webId = findViewById(R.id.webId);
-
-        WebSettings webset = webId.getSettings();
-
-        webset.setJavaScriptEnabled(true);
-        webId.setWebViewClient(new WebViewClient());
-
-        webId.loadUrl("https://zhomprass.com/PRIVACY");
 
     }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+
 }

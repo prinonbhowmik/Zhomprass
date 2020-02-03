@@ -23,12 +23,14 @@ import com.google.android.material.navigation.NavigationView;
 import com.my.zhomprass_java.Adapters.BrandsListAdapter;
 import com.my.zhomprass_java.Adapters.MultiProductAdapter;
 import com.my.zhomprass_java.Adapters.SearchProductAdapter;
+import com.my.zhomprass_java.Adapters.ShopListAdapter;
 import com.my.zhomprass_java.ForApi.ApiInterface;
 import com.my.zhomprass_java.Fragments.Home;
 import com.my.zhomprass_java.Fragments.OrderFragment;
 import com.my.zhomprass_java.Models.BrandList;
 import com.my.zhomprass_java.Models.MultiProducts;
 import com.my.zhomprass_java.Models.SearchProduct;
+import com.my.zhomprass_java.Models.ShopList;
 import com.my.zhomprass_java.R;
 import com.my.zhomprass_java.Utils.ApiUtils;
 
@@ -48,8 +50,10 @@ public class SearchActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<SearchProduct> list;
     private List<BrandList> searchBrand;
+    private List<ShopList> searchShop;
     private SearchProductAdapter productAdapter;
     private BrandsListAdapter brandsAdapter;
+    private ShopListAdapter shopAdapter;
     private ApiInterface api;
 
 
@@ -96,6 +100,8 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.searchRecycler);
         list = new ArrayList<>();
         searchBrand = new ArrayList<>();
+        searchShop = new ArrayList<>();
+
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         ArrayAdapter<CharSequence> searchItem = ArrayAdapter.createFromResource(this,R.array.search,android.R.layout.simple_spinner_item);
         searchItem.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -126,7 +132,7 @@ public class SearchActivity extends AppCompatActivity {
                        }
 
                        @Override
-                       public boolean onQueryTextChange(String newText) {
+                       public boolean onQueryTextChange(final String newText) {
                            Call<List<SearchProduct>> call = api.getProduct(newText);
                            call.enqueue(new Callback<List<SearchProduct>>() {
                                @Override
@@ -181,6 +187,35 @@ public class SearchActivity extends AppCompatActivity {
                         }
                     });
 
+                }
+                if (spinner.getSelectedItemPosition()==2){
+                    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                        @Override
+                        public boolean onQueryTextSubmit(String query) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onQueryTextChange(String newText) {
+                            Call<List<ShopList>> call = api.searchShop(newText);
+                            call.enqueue(new Callback<List<ShopList>>() {
+                                @Override
+                                public void onResponse(Call<List<ShopList>> call, Response<List<ShopList>> response) {
+                                    if (response.isSuccessful()){
+                                        searchShop = response.body();
+                                        shopAdapter = new ShopListAdapter(searchShop,SearchActivity.this);
+                                        recyclerView.setAdapter(shopAdapter);
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<List<ShopList>> call, Throwable t) {
+
+                                }
+                            });
+                            return false;
+                        }
+                    });
                 }
             }
 

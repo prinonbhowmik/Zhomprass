@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+
   
     <item
         android:title="Sign In"
         android:id="@+id/signIn"
         android:icon="@drawable/ic_account_circle_black_24dp"
         />
+    <item
+        android:title="DashBoard"
+        android:id="@+id/dashboard"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        />
+    <item
+        android:title="Customer Join"
+        android:id="@+id/joinCustomer"
+        android:icon="@drawable/ic_person_add_black_24dp"/>
+
+
+    <item
+        android:title="Tree View"
+        android:id="@+id/treeView"
+        android:icon="@drawable/ic_device_hub_black_24dp"
+        />
+
+    <item
+        android:title="E-Commerce"
+        android:id="@+id/ecommerce"
+        android:icon="@drawable/ic_cart">
+
+    </item>
+
+    <item
+        android:title="Transaction"
+        android:id="@+id/transaction"
+        android:icon="@drawable/ic_view_week_black_24dp">
+
+    </item>
+
     <item
         android:title="T &amp; C"
         android:id="@+id/tcId"

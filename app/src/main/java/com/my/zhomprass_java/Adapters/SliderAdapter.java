@@ -15,6 +15,7 @@ import com.my.zhomprass_java.Utils.Config;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.smarteist.autoimageslider.SliderViewAdapter.ViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SliderAdapter extends  SliderViewAdapter<SliderAdapter.Holder>{
@@ -36,7 +37,10 @@ public class SliderAdapter extends  SliderViewAdapter<SliderAdapter.Holder>{
     @Override
     public void onBindViewHolder(Holder viewHolder, int position) {
 
-        Glide.with(context).load(Config.SLIDER_IMAGE_LINE+list.get(position).getUrl()).into(viewHolder.imageViewBackground);
+       SliderImage image = list.get(position);
+
+
+        Glide.with(viewHolder.itemView).load(Config.SLIDER_IMAGE_LINE+list.get(position).getImage()).into(viewHolder.imageViewBackground);
 
     }
 

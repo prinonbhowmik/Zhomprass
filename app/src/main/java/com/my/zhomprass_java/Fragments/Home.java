@@ -226,7 +226,7 @@ public class Home extends Fragment {
     }
 
     private void setupSlider(List<SliderImage> sliderImages) {
-        SliderAdapter adapter = new SliderAdapter(getContext(),sliderImages);
+        SliderAdapter adapter = new SliderAdapter(getActivity(),sliderImages);
         sliderView.setSliderAdapter(adapter);
         sliderView.setIndicatorAnimation(IndicatorAnimations.WORM);
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
