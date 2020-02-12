@@ -3,6 +3,7 @@ package com.my.zhomprass_java.Fragments;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -159,21 +160,20 @@ public class Home extends Fragment {
         }
 
 
-
-
-
-
     }
 
     private void infowithLogIn(String level,int position,int rank,double available) {
-        TextDrawable levelDrawable = TextDrawable.builder().beginConfig().fontSize(30).endConfig()
+        TextDrawable levelDrawable = TextDrawable.builder().beginConfig().fontSize(20).endConfig()
                 .buildRoundRect(level,getResources().getColor(R.color.blue_ribbon),50);
-        TextDrawable positionDrawable = TextDrawable.builder().beginConfig().fontSize(30).endConfig()
+
+        TextDrawable positionDrawable = TextDrawable.builder().beginConfig().fontSize(20).endConfig()
                 .buildRoundRect(String.valueOf(position),getResources().getColor(R.color.torch_red),50);
-        TextDrawable rankDrawable = TextDrawable.builder().beginConfig().fontSize(30).endConfig()
+
+        TextDrawable rankDrawable = TextDrawable.builder().beginConfig().textColor(Color.BLACK).fontSize(20).endConfig()
                 .buildRoundRect(String.valueOf(rank),getResources().getColor(R.color.supernova),50);
-        TextDrawable avaibleDrawable = TextDrawable.builder().beginConfig().fontSize(30).endConfig()
+        TextDrawable avaibleDrawable = TextDrawable.builder().beginConfig().fontSize(20).endConfig()
                 .buildRoundRect(String.valueOf(available),getResources().getColor(R.color.fern),50);
+
 
 
         levelImage.setImageDrawable(levelDrawable);
