@@ -47,7 +47,6 @@ public class ProductsDetailsActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
     private BottomNavigationView bottomNavigationView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,17 +75,15 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         int id = intent.getIntExtra("product_id",0);
         getProductDescription(id);
 
-
         addToCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (databaseHelper.checkCart(list.get(0).getId())){
                     Toast.makeText(ProductsDetailsActivity.this, "Product Already in Cart", Toast.LENGTH_LONG).show();
+                    return;
                 }
-                else{
-                    databaseHelper.addToCart(list.get(0));
-                    Toast.makeText(ProductsDetailsActivity.this, "Product Added To Cart", Toast.LENGTH_LONG).show();
-                }
+                databaseHelper.addToCart(list.get(0));
+                Toast.makeText(ProductsDetailsActivity.this, "Product Added To Cart", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -172,7 +169,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<RelatedProduct>> call, Throwable t) {
-
+                Toast.makeText(ProductsDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

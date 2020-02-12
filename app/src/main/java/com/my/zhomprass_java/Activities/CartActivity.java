@@ -81,8 +81,9 @@ public class CartActivity extends AppCompatActivity {
               int price =  cursor.getInt(cursor.getColumnIndex(databaseHelper.PRICE));
               int point =  cursor.getInt(cursor.getColumnIndex(databaseHelper.POINT));
               int quantity = cursor.getInt(cursor.getColumnIndex(databaseHelper.QUANTITY));
+              String image = cursor.getString(cursor.getColumnIndex(databaseHelper.IMAGE));
 
-              CartProducts cartProducts = new CartProducts(id,cat_id,sub_id,third_id,name,price,point,quantity);
+              CartProducts cartProducts = new CartProducts(id,cat_id,sub_id,third_id,name,price,point,quantity,image);
               
               totalPriceTv.setText("Total : ৳"+total());
 

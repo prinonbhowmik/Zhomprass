@@ -138,7 +138,7 @@ public class Signin extends AppCompatActivity {
         emailEt.setAnimation(et_anim);
 
         Animation et_anim2 = AnimationUtils.loadAnimation(this,R.anim.edittext_anim);
-        passEt.setAnimation(et_anim);
+        passEt.setAnimation(et_anim2);
 
         Animation logo_anim = AnimationUtils.loadAnimation(this,R.anim.field_name_anim);
         logo.setAnimation(logo_anim);

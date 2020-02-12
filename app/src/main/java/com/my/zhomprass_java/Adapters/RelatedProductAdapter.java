@@ -45,7 +45,7 @@ public class RelatedProductAdapter extends RecyclerView.Adapter<RelatedProductAd
         Glide.with(context).load(Config.IMAGE_LINE+list.get(position).getImage()).into(holder.imageView);
 
         holder.text.setText(list.get(position).getProduct_name());
-        holder.price.setText(list.get(position).getPrice());
+        holder.price.setText(String.valueOf(list.get(position).getPrice()));
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

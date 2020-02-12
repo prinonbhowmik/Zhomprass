@@ -12,7 +12,7 @@ import com.my.zhomprass_java.Models.SingleProduct;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static String DB_NAME = "new_cart";
+    private static String DB_NAME = "order_cart";
     private static String TABLE_NAME = "new_table";
     public static String ID = "id";
     public static String CAT_ID = "cat_id";
@@ -22,12 +22,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static String PRICE = "price";
     public static String POINT = "point";
     public static String QUANTITY = "quantity";
-   // public static String IMAGE = "image";
+    public static String IMAGE = "image";
     private static int VERSION = 4;
     private Context context;
-    private String table = "CREATE TABLE " + TABLE_NAME + " (" + ID + " INTEGER," + CAT_ID + " INTEGER," +
-            SUB_CAT_ID + " INTEGER," + THIRD_CAT_ID + " INTEGER," + PRODUCT_NAME + " VARCHAR(255)," + PRICE + " INTEGER," +
-            POINT + " INTEGER," + QUANTITY + " INTEGER)";
+    private String table = "CREATE TABLE "+ TABLE_NAME+" ("+ ID+" INTEGER,"+ CAT_ID+" INTEGER,"
+            + SUB_CAT_ID+" INTEGER,"+ THIRD_CAT_ID+" INTEGER,"+ PRODUCT_NAME+" VARCHAR(255),"
+            + PRICE+" INTEGER,"+ POINT+" INTEGER,"+ QUANTITY+" INTEGER,"+ IMAGE+" VARCHAR)";
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -61,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PRICE, relatedProduct.getPrice());
         values.put(POINT, relatedProduct.getPoint());
         values.put(QUANTITY, 1);
-       // values.put(IMAGE, relatedProduct.getImage());
+        values.put(IMAGE, relatedProduct.getImage());
         sq.insert(TABLE_NAME, null, values);
 
     }

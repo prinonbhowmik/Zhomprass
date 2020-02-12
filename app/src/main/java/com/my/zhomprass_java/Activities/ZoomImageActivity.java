@@ -17,6 +17,10 @@ public class ZoomImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zoom_image);
+
+        zoomageView=findViewById(R.id.zoomImage);
+
+
         Intent intent = getIntent();
         String image = intent.getStringExtra("image");
 

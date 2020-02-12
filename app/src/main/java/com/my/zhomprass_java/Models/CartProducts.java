@@ -10,6 +10,11 @@ public class CartProducts {
     private int price;
     private int point;
     private int quantity;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
 
     public int getId() {
         return id;
@@ -43,7 +48,7 @@ public class CartProducts {
         return quantity;
     }
 
-    public CartProducts(int id, int cat_id, int sub_cat_id, int third_cat_id, String product_name, int price, int point, int quantity) {
+    public CartProducts(int id, int cat_id, int sub_cat_id, int third_cat_id, String product_name, int price, int point, int quantity, String image) {
         this.id = id;
         this.cat_id = cat_id;
         this.sub_cat_id = sub_cat_id;
@@ -52,5 +57,6 @@ public class CartProducts {
         this.price = price;
         this.point = point;
         this.quantity = quantity;
+        this.image = image;
     }
 }
