@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="nav_drawer">
+        <item>DashBoard</item>
+        <item>Customer Join</item>
+        <item>Tree View</item>
+        <item>E-Commerce Order</item>
+        <item>Transaction</item>
+    </string-array>
+
+
+    <string-array name="Dashboard"/>
+
+    <string-array name="CustomerJoin">
+        <item>New customer</item>
+        <item>My joining</item>
+        <item>My Invoice</item>
+    </string-array>
+
+     <string-array name="treeView">
+        <item>My Generation</item>
+        <item>Generation Tree</item>
+        <item>Zpl</item>
+    </string-array>
+
+     <string-array name="ecmrcOrder">
+        <item>New Order</item>
+        <item>Complete Order</item>
+        <item>Cancel Order</item>
+        <item>My Invoice</item>
+    </string-array>
+
+    <string-array name="transaction">
+        <item>Set Transaction Pin</item>
+        <item>Change Password</item>
+        <item>Receive Balance</item>
+        <item>Convert Balance</item>
+        <item>Withdraw Balance</item>
+    </string-array>
+
+    <string-array name="withdraw_type">
+        <item>Handcash</item>
+        <item>BKash</item>
+        <item>Mobile Banking(Rocket)</item>
+        <item>Islami Bank(ISBL)</item>
+        <item>Dutch Bangla Bank(DBBL)</item>
+    </string-array>
+
+    <string-array name="withdraw_account">
+        <item>Admin</item>
+    </string-array>
+
+    <string-array name="director">
+        <item>Md. Zubair Hossain</item>
+        <item>Md. Osman Gani</item>
+        <item>Md. Al-Amin</item>
+        <item>Shahin Parvez Rion</item>
+        <item>Jafor Ahmed</item>
+        <item>Md. Saiful Islam</item>
+        <item>Sultana</item>
+        <item>Md. Lutfor Rahman</item>
+        <item>Murad Mamun</item>
+        <item>Omar Hasan</item>
+    </string-array>
+
+    <string-array name="convert_account">
+        <item>Referral</item>
+        <item>ZPL</item>
+        <item>MS</item>
+        <item>Generation</item>
+        <item>Rank</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>MOnthly</item>
+        <item>dealer Spot</item>
+        <item>Dealer Sponsor</item>
+        <item>Company Profit</item>
+    </string-array>
+
+
+
+
+</resources>

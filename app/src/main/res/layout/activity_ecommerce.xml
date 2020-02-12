@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.TreeView">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbarTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/zhomprassicon"
+                    android:paddingRight="-10dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E-Commerce "
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#000080"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Order"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#E6690D"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/toolbarTop"
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layerOne"
+
+
+            >
+
+
+            <com.google.android.material.tabs.TabLayout
+
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIndicatorColor="@color/colorAccent"
+                app:tabMaxWidth="130dp"
+                app:tabMinWidth="130dp"
+                app:tabMode="fixed"
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Inverse"
+                app:tabSelectedTextColor="@color/colorAccent"
+                app:tabTextColor="@color/primary_text">
+
+                <com.google.android.material.tabs.TabItem
+
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="New"
+                    android:textAlignment="textStart"/>
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Complete"
+                    android:textAlignment="viewStart"/>
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:textAlignment="textStart"/>
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Invoice"
+                    android:textAlignment="viewStart"/>
+
+
+            </com.google.android.material.tabs.TabLayout>
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layerOne"
+            android:id="@+id/layerTwo"
+            >
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/productdetails_viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+            </androidx.viewpager.widget.ViewPager>
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

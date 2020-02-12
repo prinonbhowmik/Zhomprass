@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.Withdraw_Balance">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Withdraw Account"
+        android:layout_margin="5dp"
+        />
+    <Spinner
+        android:id="@+id/withdrawAcc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/withdraw_account"
+        android:padding="5dp"
+        android:background="@drawable/custom_et"
+        android:layout_margin="5dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        android:layout_margin="5dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/custom_et"
+        android:padding="5dp"
+        android:hint="Amount"
+        android:textAlignment="center"
+        android:id="@+id/amountEt"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transaction Password"
+        android:layout_margin="5dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/custom_et"
+        android:padding="5dp"
+        android:hint="Transaction password"
+        android:textAlignment="center"
+        android:id="@+id/tranPassEt"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Withdraw Type"
+        android:layout_margin="5dp"
+        />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/withdraw_type"
+        android:padding="5dp"
+        android:background="@drawable/custom_et"
+        android:layout_margin="5dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/custom_et"
+        android:padding="5dp"
+        android:hint="Acc name,Acc No.,Branch"
+        android:textAlignment="center"
+        android:id="@+id/detailsEt"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Withdraw"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:id="@+id/withdrawBtn"
+        android:background="@drawable/bg_round_navy_blue"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/withdrawBalanceRecycler"/>
+
+</LinearLayout>

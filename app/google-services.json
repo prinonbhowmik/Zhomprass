@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "359025795352",
+    "firebase_url": "https://zhomprassmessage.firebaseio.com",
+    "project_id": "zhomprassmessage",
+    "storage_bucket": "zhomprassmessage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359025795352:android:4aed2fd9fd8258bcefbe6d",
+        "android_client_info": {
+          "package_name": "com.my.zhomprass_java"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359025795352-77a2qgec0rmq24niio0q2k12epirda09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDwBPXQ6YGgi3gaFUWZLJjs-up7-5OiMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359025795352-77a2qgec0rmq24niio0q2k12epirda09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

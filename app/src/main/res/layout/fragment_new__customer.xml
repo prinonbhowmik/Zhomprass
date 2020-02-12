@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.New_Customer">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_below="@+id/toolbarTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Customer Name"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/nameEt"/>
+
+            <EditText
+                android:layout_below="@+id/nameEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Father/Husabnad Name"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/fatherEt"/>
+
+            <EditText
+                android:layout_below="@+id/fatherEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mother's Name"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/motherEt"/>
+
+            <RadioGroup
+                android:id="@+id/radio"
+                android:layout_below="@+id/motherEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender : "
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#000080"
+                    android:textSize="20sp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/male"
+                    android:textColor="#E6690D"
+                    android:textSize="20sp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#E6690D"
+                    android:textSize="20sp"
+                    android:id="@+id/female"/>
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_below="@+id/radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_et"
+                android:hint="DD-MM-YYYY"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:drawableRight="@drawable/ic_date_range_black_24dp"
+                android:id="@+id/date"/>
+
+            <AutoCompleteTextView
+                android:layout_below="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:background="@drawable/custom_et"
+                android:hint="Blood Group"
+                android:id="@+id/bloodgrp"/>
+
+            <EditText
+                android:layout_below="@+id/bloodgrp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="NID/Passport No."
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/nidEt"/>
+
+            <EditText
+                android:layout_below="@+id/nidEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Present Address"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/presentAddress"/>
+
+            <EditText
+                android:layout_below="@+id/presentAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Permanent Address"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/permanentAddress"/>
+
+            <EditText
+                android:layout_below="@+id/permanentAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone No."
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/phoneNo"/>
+
+            <EditText
+                android:layout_below="@+id/phoneNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/emailEt"/>
+
+            <EditText
+                android:layout_below="@+id/emailEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nominee Name"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/nomineeEt"/>
+
+            <Spinner
+                android:layout_below="@+id/nomineeEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/directorselection"
+                android:tooltipText="Select Director"
+                android:padding="10dp"
+                android:entries="@array/director"
+                android:background="@drawable/custom_et"
+                />
+
+            <EditText
+                android:layout_below="@+id/directorselection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Sponsor Id"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/sponsorId"/>
+
+            <EditText
+                android:layout_below="@+id/sponsorId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Referral Id"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/referralId"/>
+
+            <EditText
+                android:layout_below="@+id/referralId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="UserName"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/usernameEt"/>
+
+            <EditText
+                android:layout_below="@+id/usernameEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/passEt"/>
+
+            <EditText
+                android:layout_below="@+id/passEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:background="@drawable/custom_et"
+                android:padding="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/confirmpassEt"/>
+
+            <Button
+                android:layout_below="@+id/confirmpassEt"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create Customer"
+                android:textAllCaps="false"
+                android:id="@+id/createCustomerBtn"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_round_green"
+                />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>
