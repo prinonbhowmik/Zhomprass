@@ -22,6 +22,7 @@
                 android:gravity="center"
                 android:id="@+id/layout1">
                 <TextView
+                    android:id="@+id/totalZplTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total ZPL Member :"
@@ -32,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_round_green"
-                    android:text="1234"
+                    android:text="0000"
                     android:padding="10dp"
                     android:textColor="#fff"/>
             </LinearLayout>
@@ -95,7 +96,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_round_green"
-                            android:text="ZPL LEVEL: 4"
+                            android:text="ZPL LEVEL: 0"
                             android:textColor="#fff"
                             android:textAlignment="center"
                             android:layout_margin="5dp"
@@ -107,7 +108,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_round_red"
-                            android:text="POSITION: 13"
+                            android:text="POSITION: 00"
                             android:textColor="#fff"
                             android:textAlignment="center"
                             android:layout_margin="5dp"
@@ -120,7 +121,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_round_navy_blue"
-                        android:text="RANK: 2 "
+                        android:text="RANK: 0 "
                         android:textColor="#fff"
                         android:textAlignment="center"
                         android:layout_marginLeft="25dp"

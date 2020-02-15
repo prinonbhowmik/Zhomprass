@@ -159,7 +159,6 @@ public class Home extends Fragment {
             });
         }
 
-
     }
 
     private void infowithLogIn(String level,int position,int rank,double available) {
@@ -173,7 +172,6 @@ public class Home extends Fragment {
                 .buildRoundRect(String.valueOf(rank),getResources().getColor(R.color.supernova),50);
         TextDrawable avaibleDrawable = TextDrawable.builder().beginConfig().fontSize(20).endConfig()
                 .buildRoundRect(String.valueOf(available),getResources().getColor(R.color.fern),50);
-
 
 
         levelImage.setImageDrawable(levelDrawable);
