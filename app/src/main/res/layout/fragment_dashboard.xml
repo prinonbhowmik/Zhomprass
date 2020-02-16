@@ -61,7 +61,7 @@
                         android:id="@+id/fullnameTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Prinon Bhowmik"
+                        android:text="Prinon Bhowmik And Ab Motin"
                         android:textAlignment="center"
                         android:layout_margin="5dp"
                         android:textColor="#E6690D"
