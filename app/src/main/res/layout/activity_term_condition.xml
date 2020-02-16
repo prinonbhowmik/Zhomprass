@@ -72,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:text="1. Terms Of use:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -85,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:text="2. Eligibility:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -99,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:text="3. Communication:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -113,6 +116,7 @@
                 android:layout_height="wrap_content"
                 android:text="4.  Your Account and Responsibilities:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -127,6 +131,7 @@
                 android:layout_height="wrap_content"
                 android:text="5.  Charges:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -141,6 +146,7 @@
                 android:layout_height="wrap_content"
                 android:text="6.  Copyright:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -155,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:text="7.  Cookies:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -169,6 +176,7 @@
                 android:layout_height="wrap_content"
                 android:text="8.  Promotional Activity:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -181,8 +189,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8.  Promotional Activity:"
+                android:text="9.  The Contract:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -195,8 +204,24 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10.  Pricing:"
+                android:text="10.  Product Description:"
                 android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_margin="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="@string/productDescription"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="11.  Pricing:"
+                android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -209,8 +234,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="11.  Return Policy:"
+                android:text="12.  Return Policy:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -238,6 +264,7 @@
                 android:layout_height="wrap_content"
                 android:text="13.  Refund Policy:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -252,6 +279,7 @@
                 android:layout_height="wrap_content"
                 android:text="14.  Supply Policy:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -266,6 +294,7 @@
                 android:layout_height="wrap_content"
                 android:text="15.  Modifications:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
@@ -280,6 +309,7 @@
                 android:layout_height="wrap_content"
                 android:text="16.  ”zhomprass” Software Terms:"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
