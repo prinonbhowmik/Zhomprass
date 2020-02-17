@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D8D4D3"
+    android:background="#B6E1EB"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.DashboardFragment">
 
@@ -12,7 +12,8 @@
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+           >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                 android:elevation="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="15dp"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="10dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,7 +100,7 @@
                             android:text="ZPL LEVEL: 0"
                             android:textColor="#fff"
                             android:textAlignment="center"
-                            android:layout_margin="5dp"
+                            android:layout_margin="10dp"
                             android:padding="10dp"/>
 
                         <TextView
@@ -111,7 +112,7 @@
                             android:text="POSITION: 00"
                             android:textColor="#fff"
                             android:textAlignment="center"
-                            android:layout_margin="5dp"
+                            android:layout_margin="10dp"
                             android:padding="10dp"/>
 
                     </LinearLayout>
@@ -124,8 +125,8 @@
                         android:text="RANK: 0 "
                         android:textColor="#fff"
                         android:textAlignment="center"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
                         android:padding="10dp"/>
@@ -151,7 +152,7 @@
                         android:layout_width="0dp"
                         android:layout_margin="5dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
+                        app:cardCornerRadius="10dp"
                         android:layout_height="wrap_content"
                         android:elevation="10dp"
                         >
@@ -175,7 +176,8 @@
                                 android:id="@+id/referralAmountTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:layout_margin="10dp"
+                                android:text="৳ 0000.00"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
                                 android:textColor="#21217A"/>
@@ -185,8 +187,7 @@
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_margin="5dp"
+                        app:cardCornerRadius="10dp"                        android:layout_margin="5dp"
                         android:layout_height="wrap_content"
                         android:elevation="10dp"
                         >
@@ -209,7 +210,8 @@
                                 android:id="@+id/generationamountTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
+                                android:layout_margin="10dp"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
                                 android:textColor="#21217A"/>
@@ -227,8 +229,7 @@
                         android:layout_width="0dp"
                         android:layout_margin="5dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"                        android:layout_height="wrap_content"
                         android:elevation="10dp"
                         >
                         <LinearLayout
@@ -250,22 +251,24 @@
                                 android:id="@+id/zplamountTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
+                                android:layout_margin="10dp"
                                 android:textColor="#21217A"/>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                         android:layout_weight="1"
                         android:layout_width="0dp"
+
                         android:layout_margin="5dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"                        android:layout_height="wrap_content"
                         android:elevation="10dp"
                         android:layout_gravity="center"
                         >
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -284,7 +287,7 @@
                                 android:text="MS : 0.00"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
-                                android:layout_margin="4dp"                              android:textColor="#21217A"/>
+                                android:layout_margin="10dp"                              android:textColor="#21217A"/>
 
                             <TextView
                                 android:id="@+id/zplPointTv"
@@ -293,11 +296,12 @@
                                 android:text="Zpl : 0.00"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
-                                android:layout_margin="4dp"
-                                android:textColor="#21217A"/>
+                                android:textColor="#21217A"
+                                android:layout_marginBottom="10dp"/>
 
 
                         </LinearLayout>
+
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
                 <LinearLayout
@@ -309,8 +313,7 @@
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:elevation="10dp"
                         >
@@ -333,18 +336,18 @@
                                 android:id="@+id/msamountTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
-                                android:textColor="#21217A"/>
+                                android:textColor="#21217A"
+                                android:layout_margin="10dp"/>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:elevation="10dp"
                         >
@@ -367,10 +370,11 @@
                                 android:id="@+id/rankamountTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
-                                android:textColor="#21217A"/>
+                                android:textColor="#21217A"
+                                android:layout_margin="10dp"/>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
@@ -384,8 +388,7 @@
                         android:layout_margin="5dp"
                         android:layout_width="0dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"                        android:layout_height="wrap_content"
                         android:elevation="10dp"
                         >
                         <LinearLayout
@@ -407,7 +410,8 @@
                                 android:id="@+id/weekamountTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
+                                android:layout_margin="10dp"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
                                 android:textColor="#21217A"/>
@@ -417,8 +421,7 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_width="0dp"
+                        app:cardCornerRadius="10dp"                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:elevation="10dp"
                         >
@@ -441,7 +444,8 @@
                                 android:id="@+id/dailyamountTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
+                                android:layout_margin="10dp"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
                                 android:textColor="#21217A"/>
@@ -459,8 +463,7 @@
                         android:layout_width="0dp"
                         android:layout_margin="5dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"                        android:layout_height="wrap_content"
                         android:elevation="10dp"
                         >
                         <LinearLayout
@@ -482,8 +485,9 @@
                                 android:id="@+id/monthlyamountTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
                                 android:textAlignment="center"
+                                android:layout_margin="10dp"
                                 android:textSize="20sp"
                                 android:textColor="#21217A"/>
                         </LinearLayout>
@@ -493,8 +497,7 @@
                         android:layout_width="0dp"
                         android:layout_margin="5dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"                        android:layout_height="wrap_content"
                         android:elevation="10dp"
                         >
                         <LinearLayout
@@ -516,8 +519,9 @@
                                 android:id="@+id/dealerSpotTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
                                 android:textAlignment="center"
+                                android:layout_margin="10dp"
                                 android:textSize="20sp"
                                 android:textColor="#21217A"/>
                         </LinearLayout>
@@ -527,6 +531,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginBottom="50dp"
                     android:weightSum="2">
                     <androidx.cardview.widget.CardView
                         android:layout_weight="1"
@@ -535,8 +540,7 @@
                         android:layout_height="wrap_content"
                         android:elevation="10dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        >
+                        app:cardCornerRadius="10dp"                        >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -556,8 +560,9 @@
                                 android:id="@+id/dealerroyalityTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
                                 android:textAlignment="center"
+                                android:layout_margin="10dp"
                                 android:textSize="20sp"
                                 android:textColor="#21217A"/>
                         </LinearLayout>
@@ -569,8 +574,7 @@
                         android:layout_height="wrap_content"
                         android:elevation="10dp"
                         android:padding="10dp"
-                        app:cardCornerRadius="5dp"
-                        >
+                        app:cardCornerRadius="10dp"                        >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -590,8 +594,9 @@
                                 android:id="@+id/dealerReferralTv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="৳ 4766.33"
+                                android:text="৳ 0000.00"
                                 android:textAlignment="center"
+                                android:layout_margin="10dp"
                                 android:textSize="20sp"
                                 android:textColor="#21217A"/>
                         </LinearLayout>
