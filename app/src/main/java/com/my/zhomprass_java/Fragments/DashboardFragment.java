@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.my.zhomprass_java.Activities.Signin;
 import com.my.zhomprass_java.ForApi.ApiInterface;
+import com.my.zhomprass_java.Models.DashBoard_Model;
 import com.my.zhomprass_java.Models.Members;
 import com.my.zhomprass_java.Models.UserShortInfo;
 import com.my.zhomprass_java.R;
@@ -35,33 +36,49 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class DashboardFragment extends Fragment {
 
-    private TextView zplTv,positionTv,rankTv,zplmemberTv;
+    private TextView zplTv,positionTv,rankTv,zplmemberTv,fullNameTv,usernameTv
+            ,phoneNoTv,referralAmountTv,generationamountTv,zplamountTv,msPointTv,zplPointTv,msamountTv,rankamountTv
+            ,weekamountTv,dailyamountTv,monthlyamountTv,dealerSpotTv,dealerroyalityTv,dealerReferralTv;
     private List<Members> membersList;
     private List<UserShortInfo> userShortInfos;
+    private List<DashBoard_Model> dashBoardModels;
     private ApiInterface api;
     private SharedPreferences sharedPreferences;
-
-
     public DashboardFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
+        fullNameTv = view.findViewById(R.id.fullnameTv);
+        usernameTv = view.findViewById(R.id.usernameTv);
+        phoneNoTv = view.findViewById(R.id.phoneNoTv);
         zplTv = view.findViewById(R.id.zplTv);
         positionTv = view.findViewById(R.id.positionTv);
         rankTv = view.findViewById(R.id.rankTv);
         zplmemberTv = view.findViewById(R.id.zplMemberTv);
+        referralAmountTv = view.findViewById(R.id.referralAmountTv);
+        generationamountTv = view.findViewById(R.id.generationamountTv);
+        zplamountTv = view.findViewById(R.id.zplamountTv);
+        msPointTv = view.findViewById(R.id.msPointTv);
+        zplPointTv = view.findViewById(R.id.zplPointTv);
+        msamountTv = view.findViewById(R.id.msamountTv);
+        msamountTv = view.findViewById(R.id.msamountTv);
+        rankamountTv = view.findViewById(R.id.rankamountTv);
+        weekamountTv = view.findViewById(R.id.weekamountTv);
+        dailyamountTv = view.findViewById(R.id.dailyamountTv);
+        monthlyamountTv = view.findViewById(R.id.monthlyamountTv);
+        dealerSpotTv = view.findViewById(R.id.dealerSpotTv);
+        dealerroyalityTv = view.findViewById(R.id.dealerroyalityTv);
+        dealerReferralTv = view.findViewById(R.id.dealerReferralTv);
+
         membersList = new ArrayList<>();
+        dashBoardModels = new ArrayList<>();
         userShortInfos = new ArrayList<>();
         api = ApiUtils.getUserService();
-
-
 
         return view;
     }
@@ -71,42 +88,47 @@ public class DashboardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         getFreeZpl();
-        zplLevel();
+        dashData();
 
     }
 
-    private void zplLevel() {
+    private void dashData() {
         sharedPreferences = getContext().getSharedPreferences("Customer_Id",MODE_PRIVATE);
         int id = sharedPreferences.getInt("cust_id",0);
 
-        Call<List<UserShortInfo>> call = api.getUserInfo(id);
-        call.enqueue(new Callback<List<UserShortInfo>>() {
-            @Override
-            public void onResponse(Call<List<UserShortInfo>> call, Response<List<UserShortInfo>> response) {
-                if (response.isSuccessful()){
-                    if (response.body()==null){
-                        return;
-                    }
-                    else{
+        if (id==0){
+            Toast.makeText(getContext(), "Please Sign In!", Toast.LENGTH_LONG).show();
+        }
+        if (id!=0){
+            Call<List<DashBoard_Model>> call = api.getDashData(id);
+            call.enqueue(new Callback<List<DashBoard_Model>>() {
+                @Override
+                public void onResponse(Call<List<DashBoard_Model>> call, Response<List<DashBoard_Model>> response) {
+                    dashBoardModels = response.body();
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }
+                        else{
 
-                        userShortInfos = response.body();
+                            dashBoardModels = response.body();
+                            fullNameTv.setText(dashBoardModels.get(0).getFull_name());
+                            usernameTv.setText(dashBoardModels.get(0).getUser_name());
+                            phoneNoTv.setText(dashBoardModels.get(0).getMobile_no());
 
-                        zplTv.setText("ZPL LEVEL : "+userShortInfos.get(0).getZpl());
-                        positionTv.setText("POSITION : "+userShortInfos.get(0).getPosition());
-                        rankTv.setText("RANK : "+userShortInfos.get(0).getRank());
-
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<List<UserShortInfo>> call, Throwable t) {
-
-                Toast.makeText(getContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
+                @Override
+                public void onFailure(Call<List<DashBoard_Model>> call, Throwable t) {
+                    Toast.makeText(getActivity(),""+t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        }
     }
+
+
 
     private void getFreeZpl() {
 

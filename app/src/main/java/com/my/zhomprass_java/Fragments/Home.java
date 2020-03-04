@@ -162,7 +162,7 @@ public class Home extends Fragment {
     }
 
     private void infowithLogIn(String level,int position,int rank,double available) {
-        TextDrawable levelDrawable = TextDrawable.builder().beginConfig().fontSize(20).endConfig()
+        TextDrawable levelDrawable =TextDrawable.builder().beginConfig().fontSize(20).endConfig()
                 .buildRoundRect(level,getResources().getColor(R.color.blue_ribbon),50);
 
         TextDrawable positionDrawable = TextDrawable.builder().beginConfig().fontSize(20).endConfig()

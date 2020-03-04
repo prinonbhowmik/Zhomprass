@@ -41,12 +41,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbarTop"
+        android:id="@+id/scroll"
         android:fillViewport="true"
 
         android:paddingBottom="60dp">
 
 
         <RelativeLayout
+
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -89,7 +91,6 @@
                     android:id="@+id/productdetails_viewPager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                 </androidx.viewpager.widget.ViewPager>
             </RelativeLayout>
 
@@ -99,12 +100,13 @@
 
     </ScrollView>
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+
+        android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
         app:itemIconTint="@android:color/black"
         app:itemTextColor="@android:color/black"

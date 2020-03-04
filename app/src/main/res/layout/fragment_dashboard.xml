@@ -62,7 +62,7 @@
                         android:id="@+id/fullnameTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Prinon Bhowmik And Ab Motin"
+                        android:text="Full Name"
                         android:textAlignment="center"
                         android:layout_margin="5dp"
                         android:textColor="#E6690D"
@@ -71,7 +71,7 @@
                         android:id="@+id/usernameTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Abc"
+                        android:text="UserName"
                         android:textAlignment="center"
                         android:layout_margin="5dp"
                         android:textColor="#13723D"
@@ -555,7 +555,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAlignment="center"
-                                android:text="Dealer Referral"/>
+                                android:text="Dealer Royality"/>
                             <TextView
                                 android:id="@+id/dealerroyalityTv"
                                 android:layout_width="match_parent"
