@@ -100,31 +100,31 @@ public class DashboardFragment extends Fragment {
             Toast.makeText(getContext(), "Please Sign In!", Toast.LENGTH_LONG).show();
         }
         if (id!=0){
-            Call<List<DashBoard_Model>> call = api.getDashData(id);
-            call.enqueue(new Callback<List<DashBoard_Model>>() {
-                @Override
-                public void onResponse(Call<List<DashBoard_Model>> call, Response<List<DashBoard_Model>> response) {
-                    dashBoardModels = response.body();
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
-                            return;
+            Call<List<UserShortInfo>> call = api.getUserInfo(id);
+                    call.enqueue(new Callback<List<UserShortInfo>>() {
+                        @Override
+                        public void onResponse(Call<List<UserShortInfo>> call, Response<List<UserShortInfo>> response) {
+                            if (response.isSuccessful()){
+                                if (response.body()==null){
+                                    return;
+                                }
+                                else {
+                                    userShortInfos=response.body();
+                                    String username = userShortInfos.get(0).getUser_name();
+                                    usernameTv.setText(username);
+                                    zplTv.setText("Zpl Level : "+userShortInfos.get(0).getZpl());
+                                    positionTv.setText("Position : "+String.valueOf(userShortInfos.get(0).getPosition()));
+                                    rankTv.setText("Rank : "+String.valueOf(userShortInfos.get(0).getRank()));
+                                }
+                            }
                         }
-                        else{
 
-                            dashBoardModels = response.body();
-                            fullNameTv.setText(dashBoardModels.get(0).getFull_name());
-                            usernameTv.setText(dashBoardModels.get(0).getUser_name());
-                            phoneNoTv.setText(dashBoardModels.get(0).getMobile_no());
-
+                        @Override
+                        public void onFailure(Call<List<UserShortInfo>> call, Throwable t) {
+                            Toast.makeText(getContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    }
-                }
+                    });
 
-                @Override
-                public void onFailure(Call<List<DashBoard_Model>> call, Throwable t) {
-                    Toast.makeText(getActivity(),""+t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
         }
     }
 
