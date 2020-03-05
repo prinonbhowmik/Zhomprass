@@ -38,7 +38,8 @@ public class DashboardFragment extends Fragment {
 
     private TextView zplTv,positionTv,rankTv,zplmemberTv,fullNameTv,usernameTv
             ,phoneNoTv,referralAmountTv,generationamountTv,zplamountTv,msPointTv,zplPointTv,msamountTv,rankamountTv
-            ,weekamountTv,dailyamountTv,monthlyamountTv,dealerSpotTv,dealerroyalityTv,dealerReferralTv;
+            ,weekamountTv,dailyamountTv,monthlyamountTv,dealerSpotTv,dealerroyalityTv,dealerReferralTv,
+            totalEarningTv, totalConvertTv, totalWithdrawTv, availableBalanceTv;
     private List<Members> membersList;
     private List<UserShortInfo> userShortInfos;
     private List<DashBoard_Model> dashBoardModels;
@@ -64,9 +65,9 @@ public class DashboardFragment extends Fragment {
         generationamountTv = view.findViewById(R.id.generationamountTv);
         zplamountTv = view.findViewById(R.id.zplamountTv);
         msPointTv = view.findViewById(R.id.msPointTv);
-        zplPointTv = view.findViewById(R.id.zplPointTv);
-        msamountTv = view.findViewById(R.id.msamountTv);
-        msamountTv = view.findViewById(R.id.msamountTv);
+       // zplPointTv = view.findViewById(R.id.zplPointTv);
+       // msamountTv = view.findViewById(R.id.msamountTv);
+        //msamountTv = view.findViewById(R.id.msamountTv);
         rankamountTv = view.findViewById(R.id.rankamountTv);
         weekamountTv = view.findViewById(R.id.weekamountTv);
         dailyamountTv = view.findViewById(R.id.dailyamountTv);
@@ -74,6 +75,11 @@ public class DashboardFragment extends Fragment {
         dealerSpotTv = view.findViewById(R.id.dealerSpotTv);
         dealerroyalityTv = view.findViewById(R.id.dealerroyalityTv);
         dealerReferralTv = view.findViewById(R.id.dealerReferralTv);
+
+        totalEarningTv = view.findViewById(R.id.totalEarningTv);
+        totalConvertTv = view.findViewById(R.id.totalConvertTv);
+        totalWithdrawTv = view.findViewById(R.id.totalWithdrawTv);
+        availableBalanceTv = view.findViewById(R.id.availableBlanceTv);
 
         membersList = new ArrayList<>();
         dashBoardModels = new ArrayList<>();
@@ -128,6 +134,11 @@ public class DashboardFragment extends Fragment {
                                     dealerSpotTv.setText(String.valueOf(userShortInfos.get(0).getDealer_spot()));
                                     dealerroyalityTv.setText(String.valueOf(userShortInfos.get(0).getDealer_royalty()));
                                     dealerReferralTv.setText(String.valueOf(userShortInfos.get(0).getDealer_referal()));
+
+                                    totalEarningTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getTotal_earn()));
+                                    totalConvertTv.setText(userShortInfos.get(0).getTotal_convert());
+                                    totalWithdrawTv.setText(userShortInfos.get(0).getTotal_withdraw());
+                                    availableBalanceTv.setText(String.valueOf(userShortInfos.get(0).getAvailable_balance())); 
 
 
                                 }
