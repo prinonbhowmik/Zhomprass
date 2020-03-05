@@ -110,11 +110,26 @@ public class DashboardFragment extends Fragment {
                                 }
                                 else {
                                     userShortInfos=response.body();
+                                    fullNameTv.setText(userShortInfos.get(0).getFull_name());
                                     String username = userShortInfos.get(0).getUser_name();
                                     usernameTv.setText(username);
+                                    phoneNoTv.setText(userShortInfos.get(0).getMobile_no());
                                     zplTv.setText("Zpl Level : "+userShortInfos.get(0).getZpl());
                                     positionTv.setText("Position : "+String.valueOf(userShortInfos.get(0).getPosition()));
                                     rankTv.setText("Rank : "+String.valueOf(userShortInfos.get(0).getRank()));
+                                    referralAmountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getRefer()));
+                                    generationamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getGeneration()));
+                                    zplamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getZpl_balance()));
+                                    msPointTv.setText(String.valueOf(userShortInfos.get(0).getTotal_point()));
+                                    rankamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getRank_balance()));
+                                    weekamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getWeekly()));
+                                    dailyamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getDaily()));
+                                    monthlyamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getMonthly()));
+                                    dealerSpotTv.setText(String.valueOf(userShortInfos.get(0).getDealer_spot()));
+                                    dealerroyalityTv.setText(String.valueOf(userShortInfos.get(0).getDealer_royalty()));
+                                    dealerReferralTv.setText(String.valueOf(userShortInfos.get(0).getDealer_referal()));
+
+
                                 }
                             }
                         }
