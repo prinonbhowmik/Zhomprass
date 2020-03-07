@@ -138,7 +138,7 @@ public class DashboardFragment extends Fragment {
                                     totalEarningTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getTotal_earn()));
                                     totalConvertTv.setText(userShortInfos.get(0).getTotal_convert());
                                     totalWithdrawTv.setText(userShortInfos.get(0).getTotal_withdraw());
-                                    availableBalanceTv.setText(String.valueOf(userShortInfos.get(0).getAvailable_balance())); 
+                                    availableBalanceTv.setText(String.valueOf(userShortInfos.get(0).getAvailable_balance()));
 
 
                                 }
