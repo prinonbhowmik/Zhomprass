@@ -140,7 +140,6 @@ public class DashboardFragment extends Fragment {
                                     totalWithdrawTv.setText(userShortInfos.get(0).getTotal_withdraw());
                                     availableBalanceTv.setText(String.valueOf(userShortInfos.get(0).getAvailable_balance())); 
 
-
                                 }
                             }
                         }
