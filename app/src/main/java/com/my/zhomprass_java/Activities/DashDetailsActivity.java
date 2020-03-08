@@ -34,6 +34,7 @@ public class DashDetailsActivity extends AppCompatActivity {
     private ApiInterface api;
     private SharedPreferences sharedPreferences;
     private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -15,7 +15,6 @@
         android:id="@+id/customerjoingrecycler"
         android:padding="10dp"
         android:layout_margin="10dp"
-        android:layout_below="@+id/toolbarTop"
         tools:ignore="MissingConstraints" />
 
 

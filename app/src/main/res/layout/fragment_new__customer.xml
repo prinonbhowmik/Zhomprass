@@ -14,7 +14,6 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:layout_below="@+id/toolbarTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Customer Name"
