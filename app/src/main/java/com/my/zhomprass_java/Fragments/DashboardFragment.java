@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -40,6 +41,8 @@ public class DashboardFragment extends Fragment {
             ,phoneNoTv,referralAmountTv,generationamountTv,zplamountTv,msPointTv,zplPointTv,msamountTv,rankamountTv
             ,weekamountTv,dailyamountTv,monthlyamountTv,dealerSpotTv,dealerroyalityTv,dealerReferralTv,
             totalEarningTv, totalConvertTv, totalWithdrawTv, availableBalanceTv;
+    private CardView referelCardView,generationcardview,zplcardview,totalpointCardview,weeklyCardView
+            ,dailyCardView,monthlyCaedView,dealerSpotCardView,dealerRoyalityCardView,dealerreferalCardView,rankcardview;
     private List<Members> membersList;
     private List<UserShortInfo> userShortInfos;
     private List<DashBoard_Model> dashBoardModels;
@@ -80,6 +83,18 @@ public class DashboardFragment extends Fragment {
         totalConvertTv = view.findViewById(R.id.totalConvertTv);
         totalWithdrawTv = view.findViewById(R.id.totalWithdrawTv);
         availableBalanceTv = view.findViewById(R.id.availableBlanceTv);
+
+        referelCardView = view.findViewById(R.id.referelCardView);
+        generationcardview = view.findViewById(R.id.generationCardView);
+        zplcardview = view.findViewById(R.id.zplamountCardView);
+        totalpointCardview = view.findViewById(R.id.totalPointCardView);
+        weeklyCardView = view.findViewById(R.id.weeklyCardView);
+        dailyCardView = view.findViewById(R.id.dailycardView);
+        monthlyCaedView = view.findViewById(R.id.monthlyCardView);
+        dealerSpotCardView = view.findViewById(R.id.dealerSpotCardView);
+        dealerRoyalityCardView = view.findViewById(R.id.dealerRoyalitycardview);
+        referelCardView = view.findViewById(R.id.referelCardView);
+        rankcardview = view.findViewById(R.id.rankCardView);
 
         membersList = new ArrayList<>();
         dashBoardModels = new ArrayList<>();
