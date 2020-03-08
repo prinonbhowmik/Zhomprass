@@ -22,7 +22,6 @@
     </string>
 
 
-
     <string name="softTerms">
            16.1  Use of the “zhomprass” Software/Application/App : You may use “zhomprass” Software/ Application/ App solely for purposes of enabling you to use and enjoy the
         services as provided by “zhomprass”, and as permitted by these Terms. You may not incorporate any portion of the “zhomprass” Software / Application/ App into your own
@@ -47,7 +46,6 @@
     </string>
 
 
-
     <string name="supplypolicy">
              14.1  “zhomprass”, itself does not produce or manufacture any product; therefore “zhomprass” tries to control the quality, but do not give quality assurance
         for any. We believe the manufacturer/ vendor/ supplier are fully capable of assuring the quality of every product.\n\n
@@ -62,14 +60,12 @@
     </string>
 
 
-
     <string name="refundpolicy">
             13.1  “zhomprass” tries its best to serve the users. But if under any circumstances, we fail to fulfill our commitment or to provide the service, we will notify
         you within 24 hours via phone/ text/ email. If the service, that “zhomprass” fails to complete, requires any refund, it be done maximum within 10 Days after our acknowledgement.\n\n
 
             13.2  Refund requests will be processed under mentioned situation: Unable to serve with any product. Customer returns any product from a paid order.\n
     </string>
-
 
 
     <string name="pricing">
@@ -81,7 +77,6 @@
         price, we will, at our discretion, either contact you for instructions before shipping or cancel your order and notify you of such cancellation. And if the stated price
         on the product is lower than “zhomprass” ,“zhomprass” we will, either refund the amount or replace the product according to your preference, when acknowledged.\n
     </string>
-
 
 
     <string name="contract">
@@ -100,13 +95,12 @@
     </string>
 
 
-       <string name="productDescription">
+    <string name="productDescription">
 
           10.1  “zhomprass” attempts to be as accurate as possible. “zhomprass” does not manufacture or produce any product by the selves. Therefore, “zhomprass” does not warrant
         that product descriptions or other content of any “zhomprass” product is accurate, complete, reliable, current, or error-free. If a product offered by “zhomprass”
         itself is not as described, your sole remedy is to return it in unused condition.\n
     </string>
-
 
 
     <string name="promotional">
@@ -115,7 +109,6 @@
         user is aware of every information provided in the Website. Images of products in the Website are for and by reference only and actual product may vary from the corresponding
         image exhibited. The Website disclaims any liabilities arising out of any discrepancies to this end to the fullest extent permitted by law.\n
     </string>
-
 
 
     <string name="cookies">
@@ -138,14 +131,12 @@
     </string>
 
 
-
     <string name="chargers">
            5.1    Membership on the website is free for users. “zhomprass” does not charge any fee for browsing and buying on the website. “zhomprass” reserves the right to
         change its fee policy from time to time. In particular, “zhomprass” may at its sole discretion introduce new services and modify some or all of the existing services
         offered on the website. In such an event, “zhomprass” reserves the right to introduce fees for the new services offered or amend/introduce fees for existing services,
         as the case may be. Changes to the fee policy will be posted on the website and such changes will automatically become effective immediately after they are posted on the website.\n
     </string>
-
 
 
     <string name="Responsibilities">

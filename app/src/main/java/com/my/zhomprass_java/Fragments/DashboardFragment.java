@@ -1,6 +1,7 @@
 package com.my.zhomprass_java.Fragments;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.my.zhomprass_java.Activities.DashDetailsActivity;
 import com.my.zhomprass_java.Activities.Signin;
 import com.my.zhomprass_java.ForApi.ApiInterface;
 import com.my.zhomprass_java.Models.DashBoard_Model;
@@ -93,6 +95,7 @@ public class DashboardFragment extends Fragment {
         monthlyCaedView = view.findViewById(R.id.monthlyCardView);
         dealerSpotCardView = view.findViewById(R.id.dealerSpotCardView);
         dealerRoyalityCardView = view.findViewById(R.id.dealerRoyalitycardview);
+        dealerreferalCardView = view.findViewById(R.id.dealerrefferelCardView);
         referelCardView = view.findViewById(R.id.referelCardView);
         rankcardview = view.findViewById(R.id.rankCardView);
 
@@ -101,7 +104,69 @@ public class DashboardFragment extends Fragment {
         userShortInfos = new ArrayList<>();
         api = ApiUtils.getUserService();
 
+        seeDashDetails();
+
         return view;
+    }
+
+    private void seeDashDetails() {
+
+        referelCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type",1);
+                startActivity(intent);
+            }
+        });
+        rankcardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type",5);
+                startActivity(intent);
+            }
+        });
+        dailyCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type",6);
+                startActivity(intent);
+            }
+        });
+        monthlyCaedView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type",7);
+                startActivity(intent);
+            }
+        });
+        dealerSpotCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type",8);
+                startActivity(intent);
+            }
+        });
+        dealerreferalCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type",9);
+                startActivity(intent);
+            }
+        });
+        dealerRoyalityCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type",10);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

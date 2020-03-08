@@ -1,9 +1,11 @@
 package com.my.zhomprass_java.ForApi;
 
+import com.google.gson.JsonArray;
 import com.my.zhomprass_java.Models.Bazar;
 import com.my.zhomprass_java.Models.BrandList;
 import com.my.zhomprass_java.Models.CatagoryList;
 import com.my.zhomprass_java.Models.DashBoard_Model;
+import com.my.zhomprass_java.Models.DashboardDetails;
 import com.my.zhomprass_java.Models.District;
 import com.my.zhomprass_java.Models.Division;
 import com.my.zhomprass_java.Models.Members;
@@ -118,4 +120,8 @@ public interface ApiInterface {
 
     @GET("customer_dashboard.php?customer_id=15&type=generation&fbclid=IwAR3teKo0rHkoEaFglpixEeKti4145C5JYPB8FW878hllREx8fIkhRL1u7BM")
     Call<List<DashBoard_Model>> getDashData (@Query("customer_id")int cust_id);
+
+    @GET("accountHistory.php?id=15&type=1&fbclid=IwAR0pbZ3clee_AkfX0aaHRCRZwBKXPZH92YXM2iuvmAgghXqlDaIWm5oOZjY")
+    Call<List<DashboardDetails>> getDetails(@Query("id")int id,
+                                            @Query("type")int type);
 }

@@ -20,20 +20,26 @@ public class DashboardDetailsAdapter extends RecyclerView.Adapter<DashboardDetai
     private Context context;
     private List<DashboardDetails> list;
 
-    public DashboardDetailsAdapter(Context context, List<DashboardDetails> list) {
-        this.context = context;
+    public DashboardDetailsAdapter(List<DashboardDetails> list) {
         this.list = list;
     }
 
     @NonNull
     @Override
     public DashboardDetailsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-     
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dash_details_model,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DashboardDetailsAdapter.ViewHolder holder, int position) {
 
+        DashboardDetails details = list.get(position);
+
+        holder.idTv.setText(String.valueOf(details.getId()));
+        holder.dateTv.setText(String.valueOf(details.getDate()));
+        holder.fromUserNameTv.setText(details.getFrom_user_name());
+        holder.balanceTv.setText(String.valueOf(details.getBalance()));
     }
 
     @Override
@@ -47,6 +53,11 @@ public class DashboardDetailsAdapter extends RecyclerView.Adapter<DashboardDetai
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            idTv = itemView.findViewById(R.id.idTv);
+            dateTv = itemView.findViewById(R.id.dateTv);
+            fromUserNameTv = itemView.findViewById(R.id.nameTv);
+            balanceTv = itemView.findViewById(R.id.balanceTv);
 
             
         }

@@ -12,10 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Activities.Change_password"/>
-        <activity android:name=".Activities.Set_transaction_pin"
-            />
+        <activity android:name=".Activities.DashDetailsActivity"></activity>
+        <activity android:name=".Activities.Change_password" />
+        <activity android:name=".Activities.Set_transaction_pin" />
         <activity android:name=".Activities.Transaction" />
         <activity android:name=".Activities.Ecommerce" />
         <activity android:name=".Activities.TreeView" />
@@ -36,8 +35,9 @@
         <activity android:name=".Activities.PrivacyPolicy" />
         <activity android:name=".Activities.term_condition" />
         <activity android:name=".Activities.Signin" />
-        <activity android:name=".Activities.MainActivity"
-                  android:screenOrientation="portrait"
+        <activity
+            android:name=".Activities.MainActivity"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
