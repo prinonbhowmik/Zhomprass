@@ -167,6 +167,14 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        weeklyCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type",12);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

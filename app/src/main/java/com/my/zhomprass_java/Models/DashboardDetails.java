@@ -4,7 +4,14 @@ public class DashboardDetails {
     private int id;
     private String date;
     private String from_user_name;
-    private int balance;
+    private String balance;
+
+    public DashboardDetails(int id, String date, String from_user_name, String balance) {
+        this.id = id;
+        this.date = date;
+        this.from_user_name = from_user_name;
+        this.balance = balance;
+    }
 
     public int getId() {
         return id;
@@ -18,17 +25,7 @@ public class DashboardDetails {
         return from_user_name;
     }
 
-    public int getBalance() {
+    public String getBalance() {
         return balance;
-    }
-
-    public DashboardDetails(int id, String date, String from_user_name, int balance) {
-        this.id = id;
-        this.date = date;
-        this.from_user_name = from_user_name;
-        this.balance = balance;
-    }
-
-    public DashboardDetails() {
     }
 }

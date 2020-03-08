@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.my.zhomprass_java.Adapters.DashboardDetailsAdapter;
@@ -66,12 +67,172 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
-
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
+        }
+        if (type==5){
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+            call.enqueue(new Callback<List<DashboardDetails>>() {
+                @Override
+                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }else{
+                            details = response.body();
+                            adapter = new DashboardDetailsAdapter(details);
+                            dashRecycler.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+        if (type==6){
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+            call.enqueue(new Callback<List<DashboardDetails>>() {
+                @Override
+                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }else{
+                            details = response.body();
+                            adapter = new DashboardDetailsAdapter(details);
+                            dashRecycler.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+        if (type==7){
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+            call.enqueue(new Callback<List<DashboardDetails>>() {
+                @Override
+                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }else{
+                            details = response.body();
+                            adapter = new DashboardDetailsAdapter(details);
+                            dashRecycler.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+        if (type==8){
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+            call.enqueue(new Callback<List<DashboardDetails>>() {
+                @Override
+                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }else{
+                            details = response.body();
+                            adapter = new DashboardDetailsAdapter(details);
+                            dashRecycler.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+        if (type==9){
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+            call.enqueue(new Callback<List<DashboardDetails>>() {
+                @Override
+                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }else{
+                            details = response.body();
+                            adapter = new DashboardDetailsAdapter(details);
+                            dashRecycler.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+        if (type==10){
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+            call.enqueue(new Callback<List<DashboardDetails>>() {
+                @Override
+                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }else{
+                            details = response.body();
+                            adapter = new DashboardDetailsAdapter(details);
+                            dashRecycler.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        if (type==12){
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+            call.enqueue(new Callback<List<DashboardDetails>>() {
+                @Override
+                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }else{
+                            details = response.body();
+                            adapter = new DashboardDetailsAdapter(details);
+                            dashRecycler.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
 
 
