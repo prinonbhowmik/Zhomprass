@@ -26,9 +26,18 @@
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
+    
+    <SearchView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:queryHint="Search here"
+        android:background="@drawable/custom_et"
+        android:layout_margin="10dp"
+        android:id="@+id/search"/>
 
     <androidx.cardview.widget.CardView
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tableHeader"
