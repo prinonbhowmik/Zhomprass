@@ -169,10 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 editor = sharedPreferences.edit();
                 editor.remove("cust_id");
                 editor.apply();
-
-                Intent intent = new Intent(MainActivity.this, Signin.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                drawerLayout.closeDrawers();
                 finish();
                 break;
         }

@@ -1,6 +1,7 @@
 package com.my.zhomprass_java.Fragments;
 
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -15,11 +16,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -48,6 +51,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.my.zhomprass_java.R.id.user_info_layout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +62,7 @@ public class Home extends Fragment {
     private ViewPager viewPager;
     private SliderView sliderView;
     private RecyclerView recyclerView;
+    private LinearLayout userlayout;
     private List<Offers> list;
     private List<SliderImage> sliderImages;
     private List<RecentProducts> recentProductList;
@@ -94,6 +99,7 @@ public class Home extends Fragment {
         viewPager=view.findViewById(R.id.productdetails_viewPager);
         sliderView=view.findViewById(R.id.imageSlided);
         recyclerView=view.findViewById(R.id.offerRecyclerView);
+        userlayout = view.findViewById(user_info_layout);
         levelImage=view.findViewById(R.id.levelImageView);
         positionImage=view.findViewById(R.id.positionImage);
         rankImage=view.findViewById(R.id.rankImage);
@@ -182,20 +188,8 @@ public class Home extends Fragment {
 
     private void infowithoutLogIn() {
 
-       TextDrawable levelDrawable = TextDrawable.builder().beginConfig().fontSize(30).endConfig()
-               .buildRoundRect("0",getResources().getColor(R.color.blue_ribbon),50);
-        TextDrawable positionDrawable = TextDrawable.builder().beginConfig().fontSize(30).endConfig()
-                .buildRoundRect("0",getResources().getColor(R.color.torch_red),50);
-        TextDrawable rankDrawable = TextDrawable.builder().beginConfig().fontSize(30).endConfig()
-                .buildRoundRect("0",getResources().getColor(R.color.supernova),50);
-        TextDrawable avaibleDrawable = TextDrawable.builder().beginConfig().fontSize(30).endConfig()
-                .buildRoundRect("0",getResources().getColor(R.color.fern),50);
+        userlayout.setVisibility(LinearLayout.GONE);
 
-
-        levelImage.setImageDrawable(levelDrawable);
-        positionImage.setImageDrawable(positionDrawable);
-        rankImage.setImageDrawable(rankDrawable);
-        availbleImage.setImageDrawable(avaibleDrawable);
     }
 
     private void getSliderImage() {

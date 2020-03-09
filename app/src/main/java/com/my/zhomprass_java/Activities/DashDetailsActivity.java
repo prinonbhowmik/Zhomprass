@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -31,6 +34,7 @@ public class DashDetailsActivity extends AppCompatActivity {
     List<DashboardDetails> details;
     RecyclerView dashRecycler;
     DashboardDetailsAdapter adapter;
+    private EditText search;
     private ApiInterface api;
     private SharedPreferences sharedPreferences;
     private BottomNavigationView bottomNavigationView;
@@ -45,9 +49,71 @@ public class DashDetailsActivity extends AppCompatActivity {
         dashRecycler = findViewById(R.id.dashRecycler);
         dashRecycler.setLayoutManager(new LinearLayoutManager(this));
         api = ApiUtils.getUserService();
+        search = findViewById(R.id.search);
+        
+       memberShowing();
+       bottomNav();
+       searchData();
+
+       
+    }
+
+    private void searchData() {
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                ArrayList<DashboardDetails> filteredList = new ArrayList<>();
+
+                for(DashboardDetails item : details){
+                    if (item.getFrom_user_name().toLowerCase().contains(editable.toString().toLowerCase())) {
+                        filteredList.add(item);
+                    }
+                    if (item.getBalance().toLowerCase().contains(editable.toString().toLowerCase())) {
+                        filteredList.add(item);
+                    }
+                    if (item.getDate().toLowerCase().contains(editable.toString().toLowerCase())) {
+                        filteredList.add(item);
+                    }
+                }
+                adapter.filterList(filteredList);
+            }
+        });
+    }
+
+    private void bottomNav() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()){
+                    case R.id.homeId:
+                        startActivity(new Intent(DashDetailsActivity.this,MainActivity.class));
+                        return true;
+                    case R.id.orderId:
+                        startActivity(new Intent(DashDetailsActivity.this,OrderActivity.class));
+                        return true;
+                    case R.id.cartId:
+                        startActivity(new Intent(DashDetailsActivity.this,CartActivity.class));
+                }
+                return false;
+            }
+        });
+    }
+
+    private void memberShowing() {
 
         Intent intent = getIntent();
-       int type = intent.getIntExtra("type",0);
+        int type = intent.getIntExtra("type",0);
 
         sharedPreferences = this.getSharedPreferences("Customer_Id",MODE_PRIVATE);
         int id = sharedPreferences.getInt("cust_id",0);
@@ -235,25 +301,6 @@ public class DashDetailsActivity extends AppCompatActivity {
             });
 
         }
-
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-                switch (menuItem.getItemId()){
-                    case R.id.homeId:
-                        startActivity(new Intent(DashDetailsActivity.this,MainActivity.class));
-                        return true;
-                    case R.id.orderId:
-                        startActivity(new Intent(DashDetailsActivity.this,OrderActivity.class));
-                        return true;
-                    case R.id.cartId:
-                        startActivity(new Intent(DashDetailsActivity.this,CartActivity.class));
-                }
-                return false;
-            }
-        });
     }
 
 }

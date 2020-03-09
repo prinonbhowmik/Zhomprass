@@ -13,6 +13,7 @@ import com.my.zhomprass_java.Models.CartProducts;
 import com.my.zhomprass_java.Models.DashboardDetails;
 import com.my.zhomprass_java.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardDetailsAdapter extends RecyclerView.Adapter<DashboardDetailsAdapter.ViewHolder> {
@@ -45,6 +46,13 @@ public class DashboardDetailsAdapter extends RecyclerView.Adapter<DashboardDetai
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public void filterList(ArrayList<DashboardDetails> filteredList) {
+
+        list = filteredList;
+        notifyDataSetChanged();
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

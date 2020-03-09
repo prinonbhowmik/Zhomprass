@@ -26,16 +26,29 @@
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
-    
-    <SearchView
+
+    <EditText
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:queryHint="Search here"
+        android:padding="8dp"
+        android:hint="Search here"
+        android:drawableEnd="@drawable/ic_search_black_24dp"
         android:background="@drawable/custom_et"
         android:layout_margin="10dp"
         android:id="@+id/search"/>
 
+    <View
+        android:layout_above="@id/tableHeader"
+        android:layout_width="match_parent"
+        android:background="#000"
+        android:layout_height="1dp"/>
+    <View
+        android:layout_below="@id/tableHeader"
+        android:layout_width="match_parent"
+        android:background="#000"
+        android:layout_height="1dp"/>
     <androidx.cardview.widget.CardView
         android:layout_below="@+id/search"
         android:layout_width="match_parent"
@@ -118,7 +131,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dashRecycler"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="60dp"/>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
