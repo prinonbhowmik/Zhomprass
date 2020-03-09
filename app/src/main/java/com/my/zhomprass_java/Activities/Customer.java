@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.my.zhomprass_java.Adapters.TabPaggerAdapter;
 import com.my.zhomprass_java.Fragments.BrandsFragment;
@@ -38,6 +42,8 @@ public class Customer extends AppCompatActivity {
         tabPaggerAdapter.addFragment(new My_Invoice());
         viewPager.setAdapter(tabPaggerAdapter);
 
+        checkConnection();
+
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -57,6 +63,23 @@ public class Customer extends AppCompatActivity {
             }
         });
     }
+
+    public void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (null != activeNetwork) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+
+            } else {
+
+            }
+
+        } else {
+            Snackbar.make(findViewById(R.id.layoutCustomerActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

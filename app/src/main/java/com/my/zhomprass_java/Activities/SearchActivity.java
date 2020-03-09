@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.Adapters.BrandsListAdapter;
 import com.my.zhomprass_java.Adapters.MultiProductAdapter;
 import com.my.zhomprass_java.Adapters.SearchProductAdapter;
@@ -62,10 +66,9 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-       init();
-
-
+        init();
         searchResults();
+        checkConnection();
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -87,6 +90,22 @@ public class SearchActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (null != activeNetwork) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+
+            } else {
+
+            }
+
+        } else {
+            Snackbar.make(findViewById(R.id.layoutSearchActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
+        }
     }
 
     private void init() {

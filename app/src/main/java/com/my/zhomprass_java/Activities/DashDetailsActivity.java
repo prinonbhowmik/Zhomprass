@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.Adapters.DashboardDetailsAdapter;
 import com.my.zhomprass_java.ForApi.ApiInterface;
 import com.my.zhomprass_java.Models.DashboardDetails;
@@ -54,8 +58,25 @@ public class DashDetailsActivity extends AppCompatActivity {
        memberShowing();
        bottomNav();
        searchData();
+       checkConnection();
 
        
+    }
+
+    public void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (null != activeNetwork) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+
+            } else {
+
+            }
+
+        } else {
+            Snackbar.make(findViewById(R.id.layoutDashDetailsActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
+        }
     }
 
     private void searchData() {
@@ -136,7 +157,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -159,7 +180,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -182,7 +203,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -205,7 +226,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -228,7 +249,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -251,7 +272,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -274,7 +295,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -296,7 +317,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
 

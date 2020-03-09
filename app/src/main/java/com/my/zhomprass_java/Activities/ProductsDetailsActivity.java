@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.Adapters.ProductSliderApapter;
 import com.my.zhomprass_java.Adapters.RelatedProductAdapter;
 import com.my.zhomprass_java.Database.DatabaseHelper;
@@ -51,6 +55,8 @@ public class ProductsDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_details);
+
+        checkConnection();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         productName=findViewById(R.id.productName);
@@ -107,6 +113,22 @@ public class ProductsDetailsActivity extends AppCompatActivity {
 
     }
 
+    public void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (null != activeNetwork) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+
+            } else {
+
+            }
+
+        } else {
+            Snackbar.make(findViewById(R.id.layoutProductsDetailsActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -142,7 +164,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<SingleProduct>> call, Throwable t) {
-                Toast.makeText(ProductsDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ProductsDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -169,7 +191,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<RelatedProduct>> call, Throwable t) {
-                Toast.makeText(ProductsDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(ProductsDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

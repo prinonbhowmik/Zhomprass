@@ -7,12 +7,16 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.Adapters.MultiProductAdapter;
 import com.my.zhomprass_java.ForApi.ApiInterface;
 import com.my.zhomprass_java.Fragments.Home;
@@ -39,6 +43,9 @@ public class ProductsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
+
+        checkConnection();
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -86,6 +93,22 @@ public class ProductsActivity extends AppCompatActivity {
         });
     }
 
+    public void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (null != activeNetwork) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+
+            } else {
+
+            }
+
+        } else {
+            Snackbar.make(findViewById(R.id.layoutProductsActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
+        }
+    }
+
     private void getMultiProductsByBrand(int id) {
 
         Call<List<MultiProducts>> call = api.getMultiProductByBrand(id);
@@ -107,7 +130,7 @@ public class ProductsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<MultiProducts>> call, Throwable t) {
-                Toast.makeText(ProductsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(ProductsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -133,7 +156,7 @@ public class ProductsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<MultiProducts>> call, Throwable t) {
-                Toast.makeText(ProductsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ProductsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -159,7 +182,7 @@ public class ProductsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<MultiProducts>> call, Throwable t) {
-                Toast.makeText(ProductsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ProductsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.my.zhomprass_java.Adapters.SubTabPaggerAdapter;
 import com.my.zhomprass_java.Fragments.BrandsFragment;
@@ -27,6 +31,8 @@ public class DistrictActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_district);
+
+        checkConnection();
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.productdetails_viewPager);
@@ -89,5 +95,21 @@ public class DistrictActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (null != activeNetwork) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+
+            } else {
+
+            }
+
+        } else {
+            Snackbar.make(findViewById(R.id.layoutDistrictActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
+        }
     }
 }

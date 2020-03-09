@@ -2,8 +2,11 @@ package com.my.zhomprass_java.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.ForApi.ApiInterface;
 import com.my.zhomprass_java.Models.Members;
 import com.my.zhomprass_java.Models.UserInfo;
@@ -62,6 +66,8 @@ public class Signin extends AppCompatActivity {
 
         getFreeMember();
 
+        checkConnection();
+
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,6 +80,22 @@ public class Signin extends AppCompatActivity {
 
 
 
+    }
+
+    public void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (null != activeNetwork) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+
+            } else {
+
+            }
+
+        } else {
+            Snackbar.make(findViewById(R.id.layoutSignInActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
+        }
     }
 
     private void getFreeMember() {
@@ -99,7 +121,7 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Members>> call, Throwable t) {
 
-                Toast.makeText(Signin.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Signin.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -125,7 +147,7 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Members>> call, Throwable t) {
 
-                Toast.makeText(Signin.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(Signin.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -194,7 +216,7 @@ public class Signin extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<List<UserInfo>> call, Throwable t) {
 
-                    Toast.makeText(Signin.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Signin.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

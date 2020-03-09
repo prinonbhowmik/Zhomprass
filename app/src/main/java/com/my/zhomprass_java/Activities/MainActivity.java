@@ -125,7 +125,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         search = findViewById(R.id.search);
 
 
-
     }
 
 

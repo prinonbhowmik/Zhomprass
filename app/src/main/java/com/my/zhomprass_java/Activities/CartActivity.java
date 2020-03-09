@@ -6,8 +6,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.Adapters.CartProductAdapter;
 import com.my.zhomprass_java.Database.DatabaseHelper;
 import com.my.zhomprass_java.Models.CartProducts;
@@ -43,6 +47,7 @@ public class CartActivity extends AppCompatActivity {
        init();
 
         getCartProduct();
+        checkConnection();
 
         placeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +57,22 @@ public class CartActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (null != activeNetwork) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+
+            } else {
+
+            }
+
+        } else {
+            Snackbar.make(findViewById(R.id.layoutCartActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
+        }
     }
 
     private void init() {
