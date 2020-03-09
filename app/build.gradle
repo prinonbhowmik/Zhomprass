@@ -49,6 +49,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
 
+    //SnackBar
+    implementation 'com.android.support:appcompat-v7:29.0.0'
+    implementation 'com.android.support:design:29.0.0'
+
 
     //Room Database Dependency
     // implementation "android.arch.persistence.room:runtime:1.0.0"
