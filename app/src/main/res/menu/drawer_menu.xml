@@ -60,5 +60,12 @@
         android:icon="@drawable/ic_power_settings_new_black_24dp"
         />
 
+    <item
+        android:title="Contact us"
+        android:id="@+id/contactUsId"
+        android:icon="@drawable/ic_contacts_black_24dp"
+        />
+
+
 
 </menu>

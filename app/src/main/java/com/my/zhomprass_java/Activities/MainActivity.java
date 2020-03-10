@@ -180,6 +180,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MainActivity.this,PrivacyPolicy.class));
                 drawerLayout.closeDrawers();
                 break;
+
+            case R.id.contactUsId:
+                startActivity(new Intent(MainActivity.this,ContactUs.class));
+                drawerLayout.closeDrawers();
+                break;
+
             case R.id.aboutId:
                 startActivity(new Intent(MainActivity.this,about.class));
                 drawerLayout.closeDrawers();

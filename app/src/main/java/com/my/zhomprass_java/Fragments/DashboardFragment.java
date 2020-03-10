@@ -39,20 +39,19 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class DashboardFragment extends Fragment {
 
-    private TextView zplTv,positionTv,rankTv,zplmemberTv,fullNameTv,usernameTv
-            ,phoneNoTv,referralAmountTv,generationamountTv,zplamountTv,msPointTv,zplPointTv,msamountTv,rankamountTv
-            ,weekamountTv,dailyamountTv,monthlyamountTv,dealerSpotTv,dealerroyalityTv,dealerReferralTv,
+    private TextView zplTv, positionTv, rankTv, zplmemberTv, fullNameTv, usernameTv, phoneNoTv, referralAmountTv, generationamountTv, zplamountTv, msPointTv, zplPointTv, msamountTv, rankamountTv, weekamountTv, dailyamountTv, monthlyamountTv, dealerSpotTv, dealerroyalityTv, dealerReferralTv,
             totalEarningTv, totalConvertTv, totalWithdrawTv, availableBalanceTv;
-    private CardView referelCardView,generationcardview,zplcardview,totalpointCardview,weeklyCardView
-            ,dailyCardView,monthlyCaedView,dealerSpotCardView,dealerRoyalityCardView,dealerreferalCardView,rankcardview;
+    private CardView referelCardView, generationcardview, zplcardview, totalpointCardview, weeklyCardView, dailyCardView, monthlyCaedView, dealerSpotCardView, dealerRoyalityCardView, dealerreferalCardView, rankcardview;
     private List<Members> membersList;
     private List<UserShortInfo> userShortInfos;
     private List<DashBoard_Model> dashBoardModels;
     private ApiInterface api;
     private SharedPreferences sharedPreferences;
+
     public DashboardFragment() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,8 +69,8 @@ public class DashboardFragment extends Fragment {
         generationamountTv = view.findViewById(R.id.generationamountTv);
         zplamountTv = view.findViewById(R.id.zplamountTv);
         msPointTv = view.findViewById(R.id.msPointTv);
-       // zplPointTv = view.findViewById(R.id.zplPointTv);
-       // msamountTv = view.findViewById(R.id.msamountTv);
+        // zplPointTv = view.findViewById(R.id.zplPointTv);
+        // msamountTv = view.findViewById(R.id.msamountTv);
         //msamountTv = view.findViewById(R.id.msamountTv);
         rankamountTv = view.findViewById(R.id.rankamountTv);
         weekamountTv = view.findViewById(R.id.weekamountTv);
@@ -106,6 +105,7 @@ public class DashboardFragment extends Fragment {
 
         seeDashDetails();
 
+
         return view;
     }
 
@@ -115,23 +115,16 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type",1);
+                intent.putExtra("type", 1);
                 startActivity(intent);
             }
         });
-        rankcardview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type",5);
-                startActivity(intent);
-            }
-        });
+
         dailyCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type",6);
+                intent.putExtra("type", 6);
                 startActivity(intent);
             }
         });
@@ -139,31 +132,74 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type",7);
+                intent.putExtra("type", 7);
                 startActivity(intent);
             }
         });
-        dealerSpotCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type",8);
-                startActivity(intent);
-            }
-        });
+
         dealerreferalCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type",9);
+                intent.putExtra("type", 9);
                 startActivity(intent);
             }
         });
+
+
+        rankcardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type", 5);
+                startActivity(intent);
+            }
+        });
+
+
+        ////////////
+        generationcardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type", 2);
+                startActivity(intent);
+            }
+        });
+
+        totalpointCardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type", 3);
+                startActivity(intent);
+            }
+        });
+
+        zplcardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type", 4);
+                startActivity(intent);
+            }
+        });
+
+
+        dealerSpotCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
+                intent.putExtra("type", 8);
+                startActivity(intent);
+            }
+        });
+
         dealerRoyalityCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type",10);
+                intent.putExtra("type", 10);
                 startActivity(intent);
             }
         });
@@ -171,7 +207,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type",12);
+                intent.putExtra("type", 12);
                 startActivity(intent);
             }
         });
@@ -187,60 +223,58 @@ public class DashboardFragment extends Fragment {
     }
 
     private void dashData() {
-        sharedPreferences = getContext().getSharedPreferences("Customer_Id",MODE_PRIVATE);
-        int id = sharedPreferences.getInt("cust_id",0);
+        sharedPreferences = getContext().getSharedPreferences("Customer_Id", MODE_PRIVATE);
+        int id = sharedPreferences.getInt("cust_id", 0);
 
-        if (id==0){
+        if (id == 0) {
             Toast.makeText(getContext(), "Please Sign In!", Toast.LENGTH_LONG).show();
         }
-        if (id!=0){
+        if (id != 0) {
             Call<List<UserShortInfo>> call = api.getUserInfo(id);
-                    call.enqueue(new Callback<List<UserShortInfo>>() {
-                        @Override
-                        public void onResponse(Call<List<UserShortInfo>> call, Response<List<UserShortInfo>> response) {
-                            if (response.isSuccessful()){
-                                if (response.body()==null){
-                                    return;
-                                }
-                                else {
-                                    userShortInfos=response.body();
-                                    fullNameTv.setText(userShortInfos.get(0).getFull_name());
-                                    String username = userShortInfos.get(0).getUser_name();
-                                    usernameTv.setText(username);
-                                    phoneNoTv.setText(userShortInfos.get(0).getMobile_no());
-                                    zplTv.setText("Zpl Level : "+userShortInfos.get(0).getZpl());
-                                    positionTv.setText("Position : "+String.valueOf(userShortInfos.get(0).getPosition()));
-                                    rankTv.setText("Rank : "+String.valueOf(userShortInfos.get(0).getRank()));
-                                    referralAmountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getRefer()));
-                                    generationamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getGeneration()));
-                                    zplamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getZpl_balance()));
-                                    msPointTv.setText(String.valueOf(userShortInfos.get(0).getTotal_point()));
-                                    rankamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getRank_balance()));
-                                    weekamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getWeekly()));
-                                    dailyamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getDaily()));
-                                    monthlyamountTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getMonthly()));
-                                    dealerSpotTv.setText(String.valueOf(userShortInfos.get(0).getDealer_spot()));
-                                    dealerroyalityTv.setText(String.valueOf(userShortInfos.get(0).getDealer_royalty()));
-                                    dealerReferralTv.setText(String.valueOf(userShortInfos.get(0).getDealer_referal()));
+            call.enqueue(new Callback<List<UserShortInfo>>() {
+                @Override
+                public void onResponse(Call<List<UserShortInfo>> call, Response<List<UserShortInfo>> response) {
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
+                            return;
+                        } else {
+                            userShortInfos = response.body();
+                            fullNameTv.setText(userShortInfos.get(0).getFull_name());
+                            String username = userShortInfos.get(0).getUser_name();
+                            usernameTv.setText(username);
+                            phoneNoTv.setText(userShortInfos.get(0).getMobile_no());
+                            zplTv.setText("Zpl Level : " + userShortInfos.get(0).getZpl());
+                            positionTv.setText("Position : " + String.valueOf(userShortInfos.get(0).getPosition()));
+                            rankTv.setText("Rank : " + String.valueOf(userShortInfos.get(0).getRank()));
+                            referralAmountTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getRefer()));
+                            generationamountTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getGeneration()));
+                            zplamountTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getZpl_balance()));
+                            msPointTv.setText(String.valueOf(userShortInfos.get(0).getTotal_point()));
+                            rankamountTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getRank_balance()));
+                            weekamountTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getWeekly()));
+                            dailyamountTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getDaily()));
+                            monthlyamountTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getMonthly()));
+                            dealerSpotTv.setText(String.valueOf(userShortInfos.get(0).getDealer_spot()));
+                            dealerroyalityTv.setText(String.valueOf(userShortInfos.get(0).getDealer_royalty()));
+                            dealerReferralTv.setText(String.valueOf(userShortInfos.get(0).getDealer_referal()));
 
-                                    totalEarningTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getTotal_earn()));
-                                    totalConvertTv.setText("৳ "+userShortInfos.get(0).getTotal_convert());
-                                    totalWithdrawTv.setText("৳ "+userShortInfos.get(0).getTotal_withdraw());
-                                    availableBalanceTv.setText("৳ "+String.valueOf(userShortInfos.get(0).getAvailable_balance()));
+                            totalEarningTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getTotal_earn()));
+                            totalConvertTv.setText("৳ " + userShortInfos.get(0).getTotal_convert());
+                            totalWithdrawTv.setText("৳ " + userShortInfos.get(0).getTotal_withdraw());
+                            availableBalanceTv.setText("৳ " + String.valueOf(userShortInfos.get(0).getAvailable_balance()));
 
-                                }
-                            }
                         }
+                    }
+                }
 
-                        @Override
-                        public void onFailure(Call<List<UserShortInfo>> call, Throwable t) {
-                            Toast.makeText(getContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                @Override
+                public void onFailure(Call<List<UserShortInfo>> call, Throwable t) {
+                    Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
 
         }
     }
-
 
 
     private void getFreeZpl() {
@@ -250,12 +284,10 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Members>> call, Response<List<Members>> response) {
                 membersList = response.body();
-                if (response.isSuccessful()){
-                    if (response.body()==null)
-                    {
+                if (response.isSuccessful()) {
+                    if (response.body() == null) {
                         return;
-                    }
-                    else{
+                    } else {
                         int zpl = response.body().get(0).getMember();
                         zplmemberTv.setText(String.valueOf(zpl));
                     }
@@ -265,11 +297,10 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Members>> call, Throwable t) {
 
-                Toast.makeText(getContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 
 
 }
