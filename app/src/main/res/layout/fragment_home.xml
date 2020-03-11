@@ -137,45 +137,40 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/layerTwo">
 
-
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:id="@+id/recentlayout"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/offerTitle"
-                            android:text="Recent Offers"
-                            android:paddingLeft="10dp"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                            android:padding="5dp"
+                            android:background="@color/orange">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/offerTitle"
+                                android:text="Recent Offers"
+                                android:textColor="#21217A"
+                                android:paddingLeft="10dp"
+                                android:layout_alignParentLeft="true"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
 
-                        <TextView
-                            android:id="@+id/offerSeeAllProduct"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_above="@id/offerRecyclerView"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="5dp"
-                            android:layout_toRightOf="@id/offerTitle"
-                            android:gravity="right"
-                            android:text="See All >>"
-                            android:textColor="@android:color/black"/>
+                            <TextView
+                                android:id="@+id/offerSeeAllProduct"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="See All >>"
+                                android:layout_marginRight="5dp"
+                                android:layout_alignParentRight="true"
+                                android:textColor="#21217A"/>
 
+                        </RelativeLayout>
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollbars="none"
                             android:id="@+id/offerRecyclerView"
-                            android:layout_below="@id/offerTitle"/>
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/recentProductTv"
-                            android:text="Recent Products"
-                            android:layout_alignParentRight="true"
-                            android:paddingLeft="10dp"
-                            android:layout_below="@+id/offerRecyclerView"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                            android:layout_below="@id/recentlayout"/>
 
 
                     </RelativeLayout>
@@ -203,11 +198,24 @@
         android:fillViewport="true"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recentProductTv"
+            android:text="Recent Products"
+            android:padding="5dp"
+            android:background="@color/orange"
+            android:textColor="#21217A"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/offerRecyclerView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:id="@+id/recentProductsRecycler"
             android:orientation="vertical"
             android:background="@android:color/white"
