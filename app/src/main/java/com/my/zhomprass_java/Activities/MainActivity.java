@@ -16,6 +16,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private TextView search;
+    private ImageView logoImageViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         init();
         checkConnection();
+
 
         FragmentTransaction home = getSupportFragmentManager().beginTransaction();
         home.replace(R.id.fragment_container,new Home());
@@ -69,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
     }
+
+
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -123,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         search = findViewById(R.id.search);
+        logoImageViewId = findViewById(R.id.logoImageId);
 
 
     }

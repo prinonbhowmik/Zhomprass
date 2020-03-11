@@ -22,9 +22,10 @@ public class ZoomImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zoom_image);
 
-        checkConnection();
-
         zoomageView=findViewById(R.id.zoomImage);
+
+
+        checkConnection();
 
 
         Intent intent = getIntent();

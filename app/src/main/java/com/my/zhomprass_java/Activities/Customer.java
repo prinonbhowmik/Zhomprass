@@ -6,10 +6,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -26,6 +29,7 @@ public class Customer extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private ImageView logoImageViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class Customer extends AppCompatActivity {
 
         tabLayout=findViewById(R.id.tab_layout);
         viewPager=findViewById(R.id.productdetails_viewPager);
+        logoImageViewId = findViewById(R.id.logoImageId);
 
 
         TabPaggerAdapter tabPaggerAdapter = new TabPaggerAdapter(getSupportFragmentManager());
@@ -43,6 +48,7 @@ public class Customer extends AppCompatActivity {
         viewPager.setAdapter(tabPaggerAdapter);
 
         checkConnection();
+
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -63,6 +69,9 @@ public class Customer extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);

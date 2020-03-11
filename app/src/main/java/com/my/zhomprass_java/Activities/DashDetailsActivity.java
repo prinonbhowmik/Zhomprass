@@ -15,7 +15,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -42,6 +44,8 @@ public class DashDetailsActivity extends AppCompatActivity {
     private ApiInterface api;
     private SharedPreferences sharedPreferences;
     private BottomNavigationView bottomNavigationView;
+    private ImageView logoImageViewId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +58,18 @@ public class DashDetailsActivity extends AppCompatActivity {
         dashRecycler.setLayoutManager(new LinearLayoutManager(this));
         api = ApiUtils.getUserService();
         search = findViewById(R.id.search);
+        logoImageViewId = findViewById(R.id.logoImageId);
         
        memberShowing();
        bottomNav();
        searchData();
        checkConnection();
 
+
        
     }
+
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);

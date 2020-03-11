@@ -11,6 +11,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,20 +29,25 @@ public class DistrictActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private BottomNavigationView bottomNavigationView;
+    private ImageView logoImageViewId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_district);
 
-        checkConnection();
-
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.productdetails_viewPager);
         toolbar=findViewById(R.id.toolbar);
+        logoImageViewId = findViewById(R.id.logoImageId);
+
         setSupportActionBar(toolbar);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        checkConnection();
+
 
         SubTabPaggerAdapter  adapter = new SubTabPaggerAdapter(getSupportFragmentManager());
 
@@ -53,7 +60,6 @@ public class DistrictActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Shops"));
 
         viewPager.setAdapter(adapter);
-
         viewPager.setCurrentItem(2);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -96,6 +102,8 @@ public class DistrictActivity extends AppCompatActivity {
 
 
     }
+
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);

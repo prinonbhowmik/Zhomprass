@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -25,16 +28,21 @@ public class TreeView extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private ImageView logoImageViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tree_view);
 
-        checkConnection();
-
         tabLayout=findViewById(R.id.tab_layout);
         viewPager=findViewById(R.id.productdetails_viewPager);
+        logoImageViewId = findViewById(R.id.logoImageId);
+
+
+        checkConnection();
+
+
 
         TabPaggerAdapter tabPaggerAdapter = new TabPaggerAdapter(getSupportFragmentManager());
         tabPaggerAdapter.addFragment(new My_Generation());
@@ -61,6 +69,9 @@ public class TreeView extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
