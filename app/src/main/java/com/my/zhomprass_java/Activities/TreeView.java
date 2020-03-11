@@ -41,7 +41,7 @@ public class TreeView extends AppCompatActivity {
 
 
         checkConnection();
-        showContactUs();
+
 
 
         TabPaggerAdapter tabPaggerAdapter = new TabPaggerAdapter(getSupportFragmentManager());
@@ -70,15 +70,7 @@ public class TreeView extends AppCompatActivity {
         });
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(TreeView.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     public void checkConnection() {

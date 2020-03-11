@@ -60,7 +60,6 @@ public class ThanaActivity extends AppCompatActivity {
 
 
         checkConnection();
-        showContactUs();
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -99,15 +98,7 @@ public class ThanaActivity extends AppCompatActivity {
             }
         });
     }
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(ThanaActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     public void checkConnection() {

@@ -47,7 +47,7 @@ public class DistrictActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         checkConnection();
-        showContactUs();
+
 
         SubTabPaggerAdapter  adapter = new SubTabPaggerAdapter(getSupportFragmentManager());
 
@@ -103,15 +103,6 @@ public class DistrictActivity extends AppCompatActivity {
 
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(DistrictActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
 
 
     public void checkConnection() {

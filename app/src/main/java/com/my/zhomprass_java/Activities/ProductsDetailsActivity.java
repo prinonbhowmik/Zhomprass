@@ -79,7 +79,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         checkConnection();
-        showContactUs();
+
 
 
         Intent intent = getIntent();
@@ -118,15 +118,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
 
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(ProductsDetailsActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     public void checkConnection() {

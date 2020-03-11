@@ -50,7 +50,7 @@ public class ThiredCategoryActivity extends AppCompatActivity {
 
         setUpViewPagger();
         checkConnection();
-        showContactUs();
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -72,15 +72,7 @@ public class ThiredCategoryActivity extends AppCompatActivity {
     }
 
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(ThiredCategoryActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     public void checkConnection() {

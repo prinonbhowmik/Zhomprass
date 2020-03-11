@@ -30,19 +30,11 @@ public class term_condition extends AppCompatActivity {
 
         init();
         checkConnection();
-        showContactUs();
+
 
 
     }
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(term_condition.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     private void init() {

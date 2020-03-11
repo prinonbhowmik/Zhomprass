@@ -60,7 +60,7 @@ public class ProductsActivity extends AppCompatActivity {
         api = ApiUtils.getUserService();
 
         checkConnection();
-        showContactUs();
+
 
         Intent intent = getIntent();
         id = intent.getIntExtra("id",0);
@@ -100,15 +100,7 @@ public class ProductsActivity extends AppCompatActivity {
         });
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProductsActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     public void checkConnection() {

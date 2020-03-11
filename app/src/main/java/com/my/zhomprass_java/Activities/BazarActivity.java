@@ -50,7 +50,7 @@ public class BazarActivity extends AppCompatActivity {
 
         setUpPageViewer();
         checkConnection();
-        showContactUs();
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,15 +71,7 @@ public class BazarActivity extends AppCompatActivity {
         });
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(BazarActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     public void checkConnection() {

@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         init();
         checkConnection();
-        showContactUs();
+
 
         FragmentTransaction home = getSupportFragmentManager().beginTransaction();
         home.replace(R.id.fragment_container,new Home());
@@ -73,15 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(MainActivity.this,ContactUs.class);
-             startActivity(intent);
-            }
-        });
-    }
+
 
 
     public void checkConnection() {

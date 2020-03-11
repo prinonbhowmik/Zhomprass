@@ -41,7 +41,7 @@ public class Ecommerce extends AppCompatActivity {
         logoImageViewId = findViewById(R.id.logoImageId);
 
         checkConnection();
-        showContactUs();
+
 
         TabPaggerAdapter tabPaggerAdapter = new TabPaggerAdapter(getSupportFragmentManager());
         tabPaggerAdapter.addFragment(new New_Order());
@@ -70,15 +70,6 @@ public class Ecommerce extends AppCompatActivity {
         });
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(Ecommerce.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
 
 
     public void checkConnection() {

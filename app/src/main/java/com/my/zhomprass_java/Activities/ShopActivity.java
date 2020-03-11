@@ -48,7 +48,7 @@ public class ShopActivity extends AppCompatActivity {
 
 
         checkConnection();
-        showContactUs();
+
 
 
         SubTabPaggerAdapter adapter = new SubTabPaggerAdapter(getSupportFragmentManager());
@@ -102,15 +102,6 @@ public class ShopActivity extends AppCompatActivity {
 
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(ShopActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
 
 
     public void checkConnection() {

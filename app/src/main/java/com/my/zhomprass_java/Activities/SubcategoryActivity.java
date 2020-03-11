@@ -53,7 +53,7 @@ public class SubcategoryActivity extends AppCompatActivity {
         
         setUpViewPager();
         checkConnection();
-        showContactUs();
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -78,15 +78,7 @@ public class SubcategoryActivity extends AppCompatActivity {
 
 
     }
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(SubcategoryActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     public void checkConnection() {

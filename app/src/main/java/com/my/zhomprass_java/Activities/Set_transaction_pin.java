@@ -25,17 +25,9 @@ public class Set_transaction_pin extends AppCompatActivity {
 
         init();
         checkConnection();
-        showContactUs();
+
     }
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(Set_transaction_pin.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
 
     private void init() {

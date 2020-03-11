@@ -64,20 +64,11 @@ public class DashDetailsActivity extends AppCompatActivity {
        bottomNav();
        searchData();
        checkConnection();
-       showContactUs();
+
 
        
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(DashDetailsActivity.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
 
 
     public void checkConnection() {

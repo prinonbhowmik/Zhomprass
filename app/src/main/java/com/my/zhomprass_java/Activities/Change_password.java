@@ -25,18 +25,9 @@ public class Change_password extends AppCompatActivity {
         logoImageViewId =findViewById(R.id.logoImageId);
 
         checkConnection();
-        showContactUs();
+
     }
 
-    private void showContactUs() {
-        logoImageViewId.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(Change_password.this,ContactUs.class);
-                startActivity(intent);
-            }
-        });
-    }
 
 
     public void checkConnection() {
