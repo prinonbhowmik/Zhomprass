@@ -69,10 +69,10 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         init();
+
         searchResults();
+
         checkConnection();
-
-
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -91,11 +91,8 @@ public class SearchActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
+        
     }
-
-
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -182,8 +179,6 @@ public class SearchActivity extends AppCompatActivity {
                     searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                         @Override
                         public boolean onQueryTextSubmit(String query) {
-
-
 
                             return false;
                         }
