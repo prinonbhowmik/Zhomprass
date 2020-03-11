@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -59,6 +60,7 @@ public class SearchActivity extends AppCompatActivity {
     private BrandsListAdapter brandsAdapter;
     private ShopListAdapter shopAdapter;
     private ApiInterface api;
+    private ImageView logoImageViewId;
 
 
     @Override
@@ -69,6 +71,7 @@ public class SearchActivity extends AppCompatActivity {
         init();
         searchResults();
         checkConnection();
+        showContactUs();
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -91,6 +94,17 @@ public class SearchActivity extends AppCompatActivity {
 
 
     }
+
+    private void showContactUs() {
+        logoImageViewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(SearchActivity.this,ContactUs.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -120,6 +134,7 @@ public class SearchActivity extends AppCompatActivity {
         list = new ArrayList<>();
         searchBrand = new ArrayList<>();
         searchShop = new ArrayList<>();
+        logoImageViewId = findViewById(R.id.logoImageId);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         ArrayAdapter<CharSequence> searchItem = ArrayAdapter.createFromResource(this,R.array.search,android.R.layout.simple_spinner_item);

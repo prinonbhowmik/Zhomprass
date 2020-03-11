@@ -24,6 +24,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
               <ImageView
+                  android:id="@+id/logoImageId"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:src="@drawable/logo"

@@ -13,6 +13,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -39,13 +41,18 @@ public class ProductsActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private int id,flags;
     private ApiInterface api;
+    private ImageView logoImageViewId;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
 
         checkConnection();
+        showContactUs();
 
+        logoImageViewId = findViewById(R.id.logoImageId);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -92,6 +99,17 @@ public class ProductsActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void showContactUs() {
+        logoImageViewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(ProductsActivity.this,ContactUs.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);

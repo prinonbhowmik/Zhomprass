@@ -13,6 +13,8 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -29,6 +31,7 @@ public class Transaction extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private Toolbar toolbar;
+    private ImageView logoImageViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +39,13 @@ public class Transaction extends AppCompatActivity {
         setContentView(R.layout.activity_transaction);
 
         checkConnection();
+        showContactUs();
 
         toolbar = findViewById(R.id.toolbar);
+        logoImageViewId = findViewById(R.id.logoImageId);
 
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.options);
-
         tabLayout=findViewById(R.id.tab_layout);
         viewPager=findViewById(R.id.productdetails_viewPager);
 
@@ -71,6 +75,17 @@ public class Transaction extends AppCompatActivity {
         });
 
     }
+
+    private void showContactUs() {
+        logoImageViewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(Transaction.this,ContactUs.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -105,7 +120,6 @@ public class Transaction extends AppCompatActivity {
               break;
 
           case R.id.setPin:
-
               startActivity(new Intent(Transaction.this,Set_transaction_pin.class));
               break;
 

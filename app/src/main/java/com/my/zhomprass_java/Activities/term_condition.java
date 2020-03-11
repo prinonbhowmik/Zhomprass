@@ -4,18 +4,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.R;
 
 public class term_condition extends AppCompatActivity {
+    private ImageView logoImageViewId;
 
 
     @Override
@@ -23,9 +27,26 @@ public class term_condition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_term_condition);
 
+
+        init();
         checkConnection();
+        showContactUs();
 
 
+    }
+    private void showContactUs() {
+        logoImageViewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(term_condition.this,ContactUs.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    private void init() {
+        logoImageViewId = findViewById(R.id.logoImageId);
     }
 
     public void checkConnection() {

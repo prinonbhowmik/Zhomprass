@@ -13,6 +13,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -31,6 +33,7 @@ public class SubcategoryActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
+    private ImageView logoImageViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class SubcategoryActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.productdetails_viewPager);
         toolbar=findViewById(R.id.toolbar);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        logoImageViewId = findViewById(R.id.logoImageId);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -48,6 +53,7 @@ public class SubcategoryActivity extends AppCompatActivity {
         
         setUpViewPager();
         checkConnection();
+        showContactUs();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -72,6 +78,16 @@ public class SubcategoryActivity extends AppCompatActivity {
 
 
     }
+    private void showContactUs() {
+        logoImageViewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(SubcategoryActivity.this,ContactUs.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);

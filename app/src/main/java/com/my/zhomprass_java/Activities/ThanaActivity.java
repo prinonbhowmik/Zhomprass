@@ -11,6 +11,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,6 +29,8 @@ public class ThanaActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private BottomNavigationView bottomNavigationView;
+    private ImageView logoImageViewId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,8 @@ public class ThanaActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.productdetails_viewPager);
         toolbar=findViewById(R.id.toolbar);
+        logoImageViewId = findViewById(R.id.logoImageId);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -50,10 +56,11 @@ public class ThanaActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Shops"));
 
         viewPager.setAdapter(adapter);
-
         viewPager.setCurrentItem(2);
 
+
         checkConnection();
+        showContactUs();
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -92,6 +99,16 @@ public class ThanaActivity extends AppCompatActivity {
             }
         });
     }
+    private void showContactUs() {
+        logoImageViewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(ThanaActivity.this,ContactUs.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);

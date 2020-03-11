@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
     private ApiInterface api;
     private DatabaseHelper databaseHelper;
     private BottomNavigationView bottomNavigationView;
+    private ImageView logoImageViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,9 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_products_details);
 
         checkConnection();
+        showContactUs();
 
+        logoImageViewId = findViewById(R.id.logoImageId);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         productName=findViewById(R.id.productName);
         productDes=findViewById(R.id.descriptionText);
@@ -112,6 +116,17 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         });
 
     }
+
+    private void showContactUs() {
+        logoImageViewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(ProductsDetailsActivity.this,ContactUs.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);

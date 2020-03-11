@@ -3,21 +3,43 @@ package com.my.zhomprass_java.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.R;
 
+import java.util.Set;
+
 public class Set_transaction_pin extends AppCompatActivity {
+    private ImageView logoImageViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_transaction_pin);
 
+        init();
         checkConnection();
+        showContactUs();
+    }
+    private void showContactUs() {
+        logoImageViewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(Set_transaction_pin.this,ContactUs.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    private void init() {
+        logoImageViewId = findViewById(R.id.logoImageId);
     }
 
     public void checkConnection() {
