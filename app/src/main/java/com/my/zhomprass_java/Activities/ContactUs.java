@@ -71,7 +71,6 @@ public class ContactUs extends AppCompatActivity {
                 startActivity(Intent.createChooser(intent, ""));
             }
         });
-
     }
 
     @Override
