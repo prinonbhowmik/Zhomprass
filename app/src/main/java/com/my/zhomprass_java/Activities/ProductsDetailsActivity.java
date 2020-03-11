@@ -58,9 +58,6 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_details);
 
-        checkConnection();
-        showContactUs();
-
         logoImageViewId = findViewById(R.id.logoImageId);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         productName=findViewById(R.id.productName);
@@ -80,6 +77,10 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        checkConnection();
+        showContactUs();
+
 
         Intent intent = getIntent();
         int id = intent.getIntExtra("product_id",0);

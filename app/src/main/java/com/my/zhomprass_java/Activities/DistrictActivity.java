@@ -36,9 +36,6 @@ public class DistrictActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_district);
 
-        checkConnection();
-        showContactUs();
-
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.productdetails_viewPager);
         toolbar=findViewById(R.id.toolbar);
@@ -48,6 +45,9 @@ public class DistrictActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        checkConnection();
+        showContactUs();
 
         SubTabPaggerAdapter  adapter = new SubTabPaggerAdapter(getSupportFragmentManager());
 
@@ -60,7 +60,6 @@ public class DistrictActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Shops"));
 
         viewPager.setAdapter(adapter);
-
         viewPager.setCurrentItem(2);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

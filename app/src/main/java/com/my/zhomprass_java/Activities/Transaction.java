@@ -38,16 +38,17 @@ public class Transaction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
 
-        checkConnection();
-        showContactUs();
-
         toolbar = findViewById(R.id.toolbar);
         logoImageViewId = findViewById(R.id.logoImageId);
-
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.options);
         tabLayout=findViewById(R.id.tab_layout);
         viewPager=findViewById(R.id.productdetails_viewPager);
+
+
+        checkConnection();
+        showContactUs();
+
 
         TabPaggerAdapter tabPaggerAdapter = new TabPaggerAdapter(getSupportFragmentManager());
         tabPaggerAdapter.addFragment(new Convert_Balance());

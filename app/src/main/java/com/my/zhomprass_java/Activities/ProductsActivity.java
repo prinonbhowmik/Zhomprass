@@ -49,9 +49,6 @@ public class ProductsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
 
-        checkConnection();
-        showContactUs();
-
         logoImageViewId = findViewById(R.id.logoImageId);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         toolbar=findViewById(R.id.toolbar);
@@ -61,6 +58,9 @@ public class ProductsActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.productsRecyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         api = ApiUtils.getUserService();
+
+        checkConnection();
+        showContactUs();
 
         Intent intent = getIntent();
         id = intent.getIntExtra("id",0);
@@ -103,8 +103,8 @@ public class ProductsActivity extends AppCompatActivity {
     private void showContactUs() {
         logoImageViewId.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(ProductsActivity.this,ContactUs.class);
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductsActivity.this,ContactUs.class);
                 startActivity(intent);
             }
         });

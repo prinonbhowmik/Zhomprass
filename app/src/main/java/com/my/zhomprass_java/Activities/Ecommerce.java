@@ -36,12 +36,12 @@ public class Ecommerce extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecommerce);
 
-        checkConnection();
-        showContactUs();
-
         tabLayout=findViewById(R.id.tab_layout);
         viewPager=findViewById(R.id.productdetails_viewPager);
         logoImageViewId = findViewById(R.id.logoImageId);
+
+        checkConnection();
+        showContactUs();
 
         TabPaggerAdapter tabPaggerAdapter = new TabPaggerAdapter(getSupportFragmentManager());
         tabPaggerAdapter.addFragment(new New_Order());

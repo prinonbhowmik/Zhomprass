@@ -36,9 +36,6 @@ public class ShopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
-        checkConnection();
-        showContactUs();
-
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.productdetails_viewPager);
         toolbar=findViewById(R.id.toolbar);
@@ -48,6 +45,12 @@ public class ShopActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+
+        checkConnection();
+        showContactUs();
+
+
         SubTabPaggerAdapter adapter = new SubTabPaggerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CategoryFragment());
         adapter.addFragment(new BrandsFragment());
@@ -58,10 +61,9 @@ public class ShopActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Shops"));
 
         viewPager.setAdapter(adapter);
-
         viewPager.setCurrentItem(2);
-
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
