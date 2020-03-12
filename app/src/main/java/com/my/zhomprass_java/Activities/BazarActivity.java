@@ -1,28 +1,39 @@
 package com.my.zhomprass_java.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.my.zhomprass_java.Adapters.SubTabPaggerAdapter;
+import com.my.zhomprass_java.Database.DatabaseHelper;
 import com.my.zhomprass_java.Fragments.BazarFragment;
 import com.my.zhomprass_java.Fragments.BrandsFragment;
 import com.my.zhomprass_java.Fragments.CategoryFragment;
 import com.my.zhomprass_java.Fragments.ThanaFragment;
+import com.my.zhomprass_java.Models.CartProducts;
 import com.my.zhomprass_java.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BazarActivity extends AppCompatActivity {
 
@@ -30,6 +41,10 @@ public class BazarActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private BottomNavigationView bottomNavigationView;
+    private BottomNavigationItemView itemView;
+    BottomNavigationMenuView menuView;
+    private DatabaseHelper helper;
+    private List<CartProducts> list;
     private ImageView logoImageViewId;
 
 
@@ -43,6 +58,7 @@ public class BazarActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.productdetails_viewPager);
         toolbar=findViewById(R.id.toolbar);
         logoImageViewId = findViewById(R.id.logoImageId);
+        list = new ArrayList<>();
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -69,6 +85,27 @@ public class BazarActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        helper = new DatabaseHelper(this);
+        menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
+        itemView = (BottomNavigationItemView) menuView.getChildAt(2);
+        View notificationBadge = LayoutInflater.from(this).inflate(R.layout.badge_layout, menuView, false);
+        TextView textView = notificationBadge.findViewById(R.id.counter_badge);
+
+        Cursor yourCursor = helper.numberOfrows();
+
+        int i = 0;
+
+        while (yourCursor.moveToNext()) {
+            i += 1;
+            if (i>0){
+                textView.setVisibility(View.VISIBLE);
+                textView.setText(String.valueOf(i));
+            }
+        }
+
+
+        itemView.addView(notificationBadge);
     }
 
 

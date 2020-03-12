@@ -1,6 +1,7 @@
 package com.my.zhomprass_java.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,21 +10,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.Adapters.DashboardDetailsAdapter;
+import com.my.zhomprass_java.Database.DatabaseHelper;
 import com.my.zhomprass_java.ForApi.ApiInterface;
+import com.my.zhomprass_java.Models.CartProducts;
 import com.my.zhomprass_java.Models.DashboardDetails;
 import com.my.zhomprass_java.R;
 import com.my.zhomprass_java.Utils.ApiUtils;
@@ -44,6 +52,10 @@ public class DashDetailsActivity extends AppCompatActivity {
     private ApiInterface api;
     private SharedPreferences sharedPreferences;
     private BottomNavigationView bottomNavigationView;
+    private BottomNavigationItemView itemView;
+    BottomNavigationMenuView menuView;
+    private DatabaseHelper helper;
+    private List<CartProducts> list;
     private ImageView logoImageViewId;
 
 
@@ -59,6 +71,28 @@ public class DashDetailsActivity extends AppCompatActivity {
         api = ApiUtils.getUserService();
         search = findViewById(R.id.search);
         logoImageViewId = findViewById(R.id.logoImageId);
+        list = new ArrayList<>();
+
+        helper = new DatabaseHelper(this);
+        menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
+        itemView = (BottomNavigationItemView) menuView.getChildAt(2);
+        View notificationBadge = LayoutInflater.from(this).inflate(R.layout.badge_layout, menuView, false);
+        TextView textView = notificationBadge.findViewById(R.id.counter_badge);
+
+        Cursor yourCursor = helper.numberOfrows();
+
+        int i = 0;
+
+        while (yourCursor.moveToNext()) {
+            i += 1;
+            if (i>0){
+                textView.setVisibility(View.VISIBLE);
+                textView.setText(String.valueOf(i));
+            }
+        }
+
+
+        itemView.addView(notificationBadge);
         
        memberShowing();
        bottomNav();

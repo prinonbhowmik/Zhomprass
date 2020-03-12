@@ -15,14 +15,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.my.zhomprass_java.Adapters.SubTabPaggerAdapter;
+import com.my.zhomprass_java.Database.DatabaseHelper;
 import com.my.zhomprass_java.Fragments.BrandsFragmentThired;
 import com.my.zhomprass_java.Fragments.ShopsFragment;
 import com.my.zhomprass_java.Fragments.ThiredCategoryFragment;
+import com.my.zhomprass_java.Models.CartProducts;
 import com.my.zhomprass_java.R;
+
+import java.util.List;
 
 public class ThiredCategoryActivity extends AppCompatActivity {
 
@@ -30,6 +36,10 @@ public class ThiredCategoryActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private BottomNavigationView bottomNavigationView;
+    private BottomNavigationItemView itemView;
+    BottomNavigationMenuView menuView;
+    private DatabaseHelper helper;
+    private List<CartProducts> cartProducts;
     private ImageView logoImageViewId;
 
     @Override

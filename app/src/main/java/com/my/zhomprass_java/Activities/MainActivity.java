@@ -11,34 +11,46 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.michaelgarnerdev.materialsearchview.MaterialSearchView;
+import com.my.zhomprass_java.Database.DatabaseHelper;
 import com.my.zhomprass_java.Fragments.DashboardFragment;
 import com.my.zhomprass_java.Fragments.Home;
 import com.my.zhomprass_java.Fragments.OrderFragment;
+import com.my.zhomprass_java.Models.CartProducts;
 import com.my.zhomprass_java.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Toolbar toolbar;
     private NavigationView navigationView;
     private BottomNavigationView bottomNavigationView;
+    private BottomNavigationItemView itemView;
+    BottomNavigationMenuView menuView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private TextView search;
     private ImageView logoImageViewId;
-
+    private DatabaseHelper helper;
+    private List<CartProducts> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+
     }
-
-
-
 
     public void checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -116,15 +126,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return false;
             }
         });
+
     }
 
     private void init() {
 
         toolbar = findViewById(R.id.toolbar);
+        list = new ArrayList<>();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        helper = new DatabaseHelper(this);
+        menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
+        itemView = (BottomNavigationItemView) menuView.getChildAt(2);
+        View notificationBadge = LayoutInflater.from(this).inflate(R.layout.badge_layout, menuView, false);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
+        TextView textView = notificationBadge.findViewById(R.id.counter_badge);
+
+        Cursor yourCursor = helper.numberOfrows();
+
+        int i = 0;
+
+        while (yourCursor.moveToNext()) {
+            i += 1;
+            if (i>0){
+                textView.setVisibility(View.VISIBLE);
+                textView.setText(String.valueOf(i));
+            }
+        }
+
+
+        itemView.addView(notificationBadge);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);

@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,12 +21,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.my.zhomprass_java.Adapters.ProductSliderApapter;
 import com.my.zhomprass_java.Adapters.RelatedProductAdapter;
 import com.my.zhomprass_java.Database.DatabaseHelper;
 import com.my.zhomprass_java.ForApi.ApiInterface;
+import com.my.zhomprass_java.Models.CartProducts;
 import com.my.zhomprass_java.Models.RelatedProduct;
 import com.my.zhomprass_java.Models.SingleProduct;
 import com.my.zhomprass_java.R;
@@ -32,6 +37,7 @@ import com.my.zhomprass_java.Utils.ApiUtils;
 import com.my.zhomprass_java.Utils.Config;
 import com.smarteist.autoimageslider.SliderView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -52,6 +58,10 @@ public class ProductsDetailsActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
     private BottomNavigationView bottomNavigationView;
     private ImageView logoImageViewId;
+    private BottomNavigationItemView itemView;
+    BottomNavigationMenuView menuView;
+    private DatabaseHelper helper;
+    private List<CartProducts> cartProducts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +83,29 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         databaseHelper= new DatabaseHelper(this);
         recyclerView = findViewById(R.id.imagerecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        cartProducts = new ArrayList<>();
+        helper = new DatabaseHelper(this);
+        menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
+        itemView = (BottomNavigationItemView) menuView.getChildAt(2);
+        View notificationBadge = LayoutInflater.from(this).inflate(R.layout.badge_layout, menuView, false);
+        TextView textView = notificationBadge.findViewById(R.id.counter_badge);
+
+        Cursor yourCursor = helper.numberOfrows();
+
+        int i = 0;
+
+        while (yourCursor.moveToNext()) {
+            i += 1;
+            if (i>0){
+                textView.setVisibility(View.VISIBLE);
+                textView.setText(String.valueOf(i));
+            }
+        }
+
+
+        itemView.addView(notificationBadge);
+
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

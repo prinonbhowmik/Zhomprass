@@ -65,6 +65,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sq.insert(TABLE_NAME, null, values);
 
     }
+    public Cursor numberOfrows(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        return data;
+    }
 
     public void addQuantity(int id, int quantity) {
 
