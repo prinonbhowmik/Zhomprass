@@ -117,7 +117,6 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private int total() {
-
         Cursor cursor = databaseHelper.getCart();
         int count = 0;
 
@@ -126,7 +125,6 @@ public class CartActivity extends AppCompatActivity {
                 count+=cursor.getInt(5)*cursor.getInt(7);
             }
         }
-
         return count;
 
     }
