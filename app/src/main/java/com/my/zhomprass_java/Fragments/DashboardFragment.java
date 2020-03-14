@@ -146,7 +146,6 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-
         rankcardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

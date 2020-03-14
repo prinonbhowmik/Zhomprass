@@ -76,7 +76,6 @@ public class Ecommerce extends AppCompatActivity {
             }
         }
 
-
         itemView.addView(notificationBadge);
 
 

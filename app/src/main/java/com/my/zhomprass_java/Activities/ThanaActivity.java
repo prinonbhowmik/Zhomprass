@@ -74,9 +74,7 @@ public class ThanaActivity extends AppCompatActivity {
             }
         }
 
-
         itemView.addView(notificationBadge);
-
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
