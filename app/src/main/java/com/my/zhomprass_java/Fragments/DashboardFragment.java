@@ -156,35 +156,14 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-
-        ////////////
-        generationcardview.setOnClickListener(new View.OnClickListener() {
+        weeklyCardView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type", 2);
+                intent.putExtra("type", 12);
                 startActivity(intent);
             }
         });
-
-        totalpointCardview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type", 3);
-                startActivity(intent);
-            }
-        });
-
-        zplcardview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type", 4);
-                startActivity(intent);
-            }
-        });
-
 
         dealerSpotCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,6 +174,7 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+
         dealerRoyalityCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -203,14 +183,10 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        weeklyCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), DashDetailsActivity.class);
-                intent.putExtra("type", 12);
-                startActivity(intent);
-            }
-        });
+
+
+
+
     }
 
     @Override
