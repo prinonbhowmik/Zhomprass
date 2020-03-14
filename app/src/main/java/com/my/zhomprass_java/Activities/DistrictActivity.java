@@ -56,6 +56,8 @@ public class DistrictActivity extends AppCompatActivity {
         logoImageViewId = findViewById(R.id.logoImageId);
         list = new ArrayList<>();
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+
         helper = new DatabaseHelper(this);
         menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
         itemView = (BottomNavigationItemView) menuView.getChildAt(2);
@@ -75,7 +77,7 @@ public class DistrictActivity extends AppCompatActivity {
         }
 
         setSupportActionBar(toolbar);
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
