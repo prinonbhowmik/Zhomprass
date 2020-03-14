@@ -24,6 +24,7 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
@@ -83,6 +84,7 @@ public class Home extends Fragment {
     private ImageView availbleImage;
     private SharedPreferences sharedPreferences;
     private ApiInterface api;
+    private TextView offerSeeAllProduct;
 
     public Home() {
         // Required empty public constructor
@@ -117,6 +119,8 @@ public class Home extends Fragment {
         api = ApiUtils.getUserService();
         recentProductList = new ArrayList<>();
         tempProductList = new ArrayList<>();
+        offerSeeAllProduct = view.findViewById(R.id.offerSeeAllProduct);
+
 
         return view;
     }
@@ -130,6 +134,7 @@ public class Home extends Fragment {
         getOffers();
         getRecentProducts();
         scrolling();
+
 
         sharedPreferences = getContext().getSharedPreferences("Customer_Id",MODE_PRIVATE);
         int id = sharedPreferences.getInt("cust_id",0);
@@ -305,6 +310,8 @@ public class Home extends Fragment {
             }
         });
     }
+
+
      private void scrolling() {
         recentProductRecyler.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

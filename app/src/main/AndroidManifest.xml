@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.ContactUs"></activity>
+        <activity android:name=".Activities.ShowOffers"></activity>
+        <activity android:name=".Activities.ContactUs" />
         <activity android:name=".Activities.DashDetailsActivity" />
         <activity android:name=".Activities.Change_password" />
         <activity android:name=".Activities.Set_transaction_pin" />

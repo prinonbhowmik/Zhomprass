@@ -54,6 +54,7 @@ public class ThanaActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.productdetails_viewPager);
         toolbar=findViewById(R.id.toolbar);
         logoImageViewId = findViewById(R.id.logoImageId);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         cartProducts = new ArrayList<>();
         helper = new DatabaseHelper(this);
@@ -81,7 +82,7 @@ public class ThanaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
 
         SubTabPaggerAdapter adapter = new SubTabPaggerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CategoryFragment());
