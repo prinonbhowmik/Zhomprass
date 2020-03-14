@@ -2,6 +2,7 @@ package com.my.zhomprass_java.Fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -24,6 +25,7 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
@@ -83,6 +85,7 @@ public class Home extends Fragment {
     private ImageView availbleImage;
     private SharedPreferences sharedPreferences;
     private ApiInterface api;
+    private TextView offerSeeAllProduct;
 
     public Home() {
         // Required empty public constructor
@@ -117,6 +120,7 @@ public class Home extends Fragment {
         api = ApiUtils.getUserService();
         recentProductList = new ArrayList<>();
         tempProductList = new ArrayList<>();
+        offerSeeAllProduct = view.findViewById(R.id.offerSeeAllProduct);
 
         return view;
     }
@@ -289,21 +293,25 @@ public class Home extends Fragment {
                         return;
                     }
                     else{
-
                         list = response.body();
                         OfferAdapter adapter = new OfferAdapter(getContext(),list);
                         recyclerView.setAdapter(adapter);
-
                     }
-
                 }
             }
-
             @Override
             public void onFailure(Call<List<Offers>> call, Throwable t) {
                 Toast.makeText(getContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        offerSeeAllProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              //  startActivity(new Intent(getContext(),));
+            }
+        });
+
     }
      private void scrolling() {
         recentProductRecyler.addOnScrollListener(new RecyclerView.OnScrollListener() {
