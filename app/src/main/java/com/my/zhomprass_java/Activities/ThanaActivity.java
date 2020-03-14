@@ -54,7 +54,7 @@ public class ThanaActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.productdetails_viewPager);
         toolbar=findViewById(R.id.toolbar);
         logoImageViewId = findViewById(R.id.logoImageId);
-
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
         cartProducts = new ArrayList<>();
         helper = new DatabaseHelper(this);
         menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);

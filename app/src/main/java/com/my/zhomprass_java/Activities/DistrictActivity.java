@@ -55,7 +55,7 @@ public class DistrictActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.toolbar);
         logoImageViewId = findViewById(R.id.logoImageId);
         list = new ArrayList<>();
-
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
         helper = new DatabaseHelper(this);
         menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
         itemView = (BottomNavigationItemView) menuView.getChildAt(2);
