@@ -55,7 +55,6 @@ public class ThanaActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.toolbar);
         logoImageViewId = findViewById(R.id.logoImageId);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
         cartProducts = new ArrayList<>();
         helper = new DatabaseHelper(this);
         menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
@@ -75,14 +74,12 @@ public class ThanaActivity extends AppCompatActivity {
             }
         }
 
-
         itemView.addView(notificationBadge);
-
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         SubTabPaggerAdapter adapter = new SubTabPaggerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CategoryFragment());
