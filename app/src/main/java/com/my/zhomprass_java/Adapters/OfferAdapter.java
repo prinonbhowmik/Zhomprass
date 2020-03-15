@@ -42,8 +42,13 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.ViewHolder> 
 
         Glide.with(context).load(Config.IMAGE_LINE+offer.getImage()).into(holder.imageView);
         holder.textView.setText(offer.getProduct_name());
-        holder.price.setText(offer.getPrice()+"TK");
+        double price = offer.getPrice();
+        double offerprice = offer.getOffer();
+        double mainprice = price-offerprice;
+        holder.realPrice.setText(String.valueOf(offer.getPrice()));
+        holder.price.setText(String.valueOf(mainprice)+"TK");
         holder.point.setText(offer.getPoint()+"PT");
+        holder.discountText.setText(String.valueOf(offer.getOffer()+" Tk Off"));
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +67,7 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
-        private TextView textView,price,point;
+        private TextView textView,price,point,realPrice,discountText;
         private ImageView imageView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +77,8 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.ViewHolder> 
             price = itemView.findViewById(R.id.offerPrice);
             point = itemView.findViewById(R.id.offerPoint);
             cardView = itemView.findViewById(R.id.offerCardId);
+            realPrice = itemView.findViewById(R.id.realPrice);
+            discountText = itemView.findViewById(R.id.discountText);
         }
     }
 }

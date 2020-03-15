@@ -52,6 +52,7 @@ public class ThiredCategoryListAdapter extends RecyclerView.Adapter<ThiredCatego
             public void onClick(View view) {
                 Intent intent = new Intent(context, ProductsActivity.class);
                 intent.putExtra("id",third.getId());
+                Log.d("msg",String.valueOf(third.getId()));
                 intent.putExtra("flags",2);
                 context.startActivity(intent);
                 Log.d("idShow",String.valueOf(third.getId()));

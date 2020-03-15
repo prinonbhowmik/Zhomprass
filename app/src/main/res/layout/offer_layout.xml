@@ -20,11 +20,10 @@
         android:layout_marginRight="5dp"
         android:id="@+id/offerCardId">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="130dp"
             android:layout_height="250dp"
             android:orientation="vertical">
-
 
             <ImageView
                 android:id="@+id/offerProductPicId"
@@ -45,54 +44,70 @@
                 android:text="Walton"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/offerProductPicId" />
-
-
+                android:layout_below="@+id/offerProductPicId"/>
             <TextView
-                android:id="@+id/offerPrice"
-                android:layout_width="wrap_content"
+                android:id="@+id/realPrice"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:text="1000 Tk"
-                android:textColor="@android:color/holo_red_dark"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/offerProductId"
-                app:layout_constraintVertical_bias="0.851" />
-
-
-            <TextView
-                android:id="@+id/offerPoint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="4dp"
-                android:text="100 Pt"
-                android:textColor="@android:color/holo_red_dark"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/offerProductId"
-                app:layout_constraintVertical_bias="0.851" />
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Walton"
+                android:layout_below="@+id/offerProductId"/>
 
             <TextView
                 android:id="@+id/discountText"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="132dp"
                 android:background="@drawable/round_background"
                 android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:text="20% off"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
                 android:textColor="@android:color/white"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="12sp" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_below="@+id/realPrice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/offerPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="16dp"
+                    android:text="1000 Tk"
+                    android:gravity="start"
+                    android:textColor="@android:color/holo_red_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/offerProductId"
+                    app:layout_constraintVertical_bias="0.851" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/offerPoint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="100 Pt"
+                    android:gravity="end"
+                    android:textColor="@android:color/holo_red_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/offerProductId"
+                    app:layout_constraintVertical_bias="0.851" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
