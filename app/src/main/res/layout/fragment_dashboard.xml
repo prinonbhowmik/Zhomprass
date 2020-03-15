@@ -63,8 +63,10 @@
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/puma_offer" />
+                        android:layout_marginTop="15dp"
+                        app:civ_border_color="@color/Orange"
+                        app:civ_border_width="2dp"
+                        android:src="@drawable/ic_account_circle_black_24dp" />
 
                     <TextView
                         android:id="@+id/fullnameTv"

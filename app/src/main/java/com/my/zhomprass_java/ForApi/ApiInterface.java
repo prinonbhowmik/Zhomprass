@@ -119,7 +119,7 @@ public interface ApiInterface {
     Call<List<ShopList>> searchShop(@Query("shop_name") String name);
 
     @GET("customer_dashboard.php?customer_id=15&type=generation&fbclid=IwAR3teKo0rHkoEaFglpixEeKti4145C5JYPB8FW878hllREx8fIkhRL1u7BM")
-    Call<List<DashBoard_Model>> getDashData (@Query("customer_id")int cust_id);
+    Call<JsonArray>getDashData (@Query("customer_id")int cust_id);
 
     @GET("accountHistory.php?id=15&type=1&fbclid=IwAR0pbZ3clee_AkfX0aaHRCRZwBKXPZH92YXM2iuvmAgghXqlDaIWm5oOZjY")
     Call<List<DashboardDetails>> getDetails(@Query("id")int id,

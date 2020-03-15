@@ -3,6 +3,7 @@ package com.my.zhomprass_java.Fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.gson.JsonArray;
 import com.my.zhomprass_java.Activities.DashDetailsActivity;
 import com.my.zhomprass_java.Activities.Signin;
 import com.my.zhomprass_java.ForApi.ApiInterface;
@@ -24,10 +27,15 @@ import com.my.zhomprass_java.Models.Members;
 import com.my.zhomprass_java.Models.UserShortInfo;
 import com.my.zhomprass_java.R;
 import com.my.zhomprass_java.Utils.ApiUtils;
+import com.my.zhomprass_java.Utils.Config;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,9 +47,13 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class DashboardFragment extends Fragment {
 
-    private TextView zplTv, positionTv, rankTv, zplmemberTv, fullNameTv, usernameTv, phoneNoTv, referralAmountTv, generationamountTv, zplamountTv, msPointTv, zplPointTv, msamountTv, rankamountTv, weekamountTv, dailyamountTv, monthlyamountTv, dealerSpotTv, dealerroyalityTv, dealerReferralTv,
+    private TextView zplTv, positionTv, rankTv, zplmemberTv, fullNameTv, usernameTv, phoneNoTv, referralAmountTv
+            , generationamountTv, zplamountTv, msPointTv, zplPointTv, msamountTv, rankamountTv, weekamountTv,
+            dailyamountTv, monthlyamountTv, dealerSpotTv, dealerroyalityTv, dealerReferralTv,
             totalEarningTv, totalConvertTv, totalWithdrawTv, availableBalanceTv;
-    private CardView referelCardView, generationcardview, zplcardview, totalpointCardview, weeklyCardView, dailyCardView, monthlyCaedView, dealerSpotCardView, dealerRoyalityCardView, dealerreferalCardView, rankcardview;
+    private CardView referelCardView, generationcardview, zplcardview, totalpointCardview, weeklyCardView,
+            dailyCardView, monthlyCaedView, dealerSpotCardView, dealerRoyalityCardView, dealerreferalCardView, rankcardview;
+    private CircleImageView userImage;
     private List<Members> membersList;
     private List<UserShortInfo> userShortInfos;
     private List<DashBoard_Model> dashBoardModels;
@@ -60,6 +72,7 @@ public class DashboardFragment extends Fragment {
 
         fullNameTv = view.findViewById(R.id.fullnameTv);
         usernameTv = view.findViewById(R.id.usernameTv);
+        userImage = view.findViewById(R.id.userimage);
         phoneNoTv = view.findViewById(R.id.phoneNoTv);
         zplTv = view.findViewById(R.id.zplTv);
         positionTv = view.findViewById(R.id.positionTv);
@@ -193,7 +206,47 @@ public class DashboardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         getFreeZpl();
+        getDashProPic();
         dashData();
+
+    }
+
+    private void getDashProPic() {
+        sharedPreferences = getContext().getSharedPreferences("Customer_Id",MODE_PRIVATE);
+        int id = sharedPreferences.getInt("cust_id", 0);
+
+        if (id == 0) {
+            Toast.makeText(getContext(), "Please Sign In!", Toast.LENGTH_LONG).show();
+        }
+        if (id != 0) {
+            Call<JsonArray> call = api.getDashData(id);
+            call.enqueue(new Callback<JsonArray>() {
+                @Override
+                public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
+                    if (response.isSuccessful()){
+                        if (response.body()==null){
+                            return;
+                        }
+                        else{
+                            try {
+                                JSONArray array = new JSONArray(response.body().toString());
+
+                                Glide.with(getActivity()).load(Config.IMAGE_LINE+array.
+                                        getJSONObject(0).getString("profile_pic"))
+                                        .into(userImage);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<JsonArray> call, Throwable t) {
+
+                }
+            });
+
+        }
 
     }
 
@@ -214,6 +267,15 @@ public class DashboardFragment extends Fragment {
                             return;
                         } else {
                             userShortInfos = response.body();
+                            try {
+                                JSONArray array = new JSONArray(response.body().toString());
+                                String image = array.getJSONObject(0).getString("profile_pic");
+                                userImage.setImageURI(Uri.parse(image));
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
                             fullNameTv.setText(userShortInfos.get(0).getFull_name());
                             String username = userShortInfos.get(0).getUser_name();
                             usernameTv.setText(username);

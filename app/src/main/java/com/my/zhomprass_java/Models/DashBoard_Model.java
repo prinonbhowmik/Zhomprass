@@ -2,6 +2,7 @@ package com.my.zhomprass_java.Models;
 
 public class DashBoard_Model {
 
+    private String image;
     private String user_name;
     private String full_name;
     private String mobile_no;
@@ -24,7 +25,9 @@ public class DashBoard_Model {
     private double dealer_refer;
     private double dealer_royality;
 
-    public DashBoard_Model(String user_name, String full_name, String mobile_no, String zpl_level, int position, int rank, double total_earn, String total_convert, String total_withdraw, double available, double refer, double generation, double zpl, double total_point, double ranks, double weekly, double daily, double monthly, double dealer_spot, double dealer_refer, double dealer_royality) {
+
+    public DashBoard_Model(String image, String user_name, String full_name, String mobile_no, String zpl_level, int position, int rank, double total_earn, String total_convert, String total_withdraw, double available, double refer, double generation, double zpl, double total_point, double ranks, double weekly, double daily, double monthly, double dealer_spot, double dealer_refer, double dealer_royality) {
+        this.image = image;
         this.user_name = user_name;
         this.full_name = full_name;
         this.mobile_no = mobile_no;
@@ -46,6 +49,10 @@ public class DashBoard_Model {
         this.dealer_spot = dealer_spot;
         this.dealer_refer = dealer_refer;
         this.dealer_royality = dealer_royality;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     public String getUser_name() {

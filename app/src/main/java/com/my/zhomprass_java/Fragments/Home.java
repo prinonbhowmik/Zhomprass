@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.google.android.material.tabs.TabLayout;
+import com.my.zhomprass_java.Activities.ShowOffers;
 import com.my.zhomprass_java.Adapters.OfferAdapter;
 import com.my.zhomprass_java.Adapters.RecentProductAdapter;
 import com.my.zhomprass_java.Adapters.SliderAdapter;
@@ -308,7 +309,7 @@ public class Home extends Fragment {
         offerSeeAllProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  startActivity(new Intent(getContext(),));
+                startActivity(new Intent(getContext(), ShowOffers.class));
             }
         });
 
