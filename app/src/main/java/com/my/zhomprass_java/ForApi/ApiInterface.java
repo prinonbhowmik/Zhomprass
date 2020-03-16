@@ -24,6 +24,7 @@ import com.my.zhomprass_java.Models.ThiredBrandList;
 import com.my.zhomprass_java.Models.ThiredCategoryList;
 import com.my.zhomprass_java.Models.UserInfo;
 import com.my.zhomprass_java.Models.UserShortInfo;
+import com.my.zhomprass_java.Models.ZplDetails;
 
 import java.util.List;
 
@@ -124,4 +125,7 @@ public interface ApiInterface {
     @GET("accountHistory.php?id=15&type=1&fbclid=IwAR0pbZ3clee_AkfX0aaHRCRZwBKXPZH92YXM2iuvmAgghXqlDaIWm5oOZjY")
     Call<List<DashboardDetails>> getDetails(@Query("id")int id,
                                             @Query("type")int type);
+
+    @GET("zplHistory.php?id=15")
+    Call<List<ZplDetails>> getZplDetails(@Query("id") int id);
 }

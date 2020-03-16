@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.google.gson.JsonArray;
 import com.my.zhomprass_java.Activities.DashDetailsActivity;
 import com.my.zhomprass_java.Activities.Signin;
+import com.my.zhomprass_java.Activities.ZplDetailsActivity;
 import com.my.zhomprass_java.ForApi.ApiInterface;
 import com.my.zhomprass_java.Models.DashBoard_Model;
 import com.my.zhomprass_java.Models.Members;
@@ -192,6 +193,14 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
                 intent.putExtra("type", 10);
+                startActivity(intent);
+            }
+        });
+
+        zplcardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ZplDetailsActivity.class);
                 startActivity(intent);
             }
         });
