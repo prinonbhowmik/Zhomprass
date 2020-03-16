@@ -8,6 +8,7 @@ import com.my.zhomprass_java.Models.DashBoard_Model;
 import com.my.zhomprass_java.Models.DashboardDetails;
 import com.my.zhomprass_java.Models.District;
 import com.my.zhomprass_java.Models.Division;
+import com.my.zhomprass_java.Models.GenerationModel;
 import com.my.zhomprass_java.Models.Members;
 import com.my.zhomprass_java.Models.MultiProducts;
 import com.my.zhomprass_java.Models.Offers;
@@ -128,4 +129,7 @@ public interface ApiInterface {
 
     @GET("zplHistory.php?id=15")
     Call<List<ZplDetails>> getZplDetails(@Query("id") int id);
+
+    @GET("generationHistory.php?id=16")
+    Call<List<GenerationModel>> getGeneration(@Query("id") int id);
 }

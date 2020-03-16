@@ -38,6 +38,7 @@ import com.my.zhomprass_java.Utils.ApiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -85,7 +86,7 @@ public class DashDetailsActivity extends AppCompatActivity {
 
         while (yourCursor.moveToNext()) {
             i += 1;
-            if (i>0){
+            if (i > 0) {
                 textView.setVisibility(View.VISIBLE);
                 textView.setText(String.valueOf(i));
             }
@@ -93,16 +94,14 @@ public class DashDetailsActivity extends AppCompatActivity {
 
 
         itemView.addView(notificationBadge);
-        
-       memberShowing();
-       bottomNav();
-       searchData();
-       checkConnection();
+
+        memberShowing();
+        bottomNav();
+        searchData();
+        checkConnection();
 
 
-       
     }
-
 
 
     public void checkConnection() {
@@ -137,7 +136,7 @@ public class DashDetailsActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 ArrayList<DashboardDetails> filteredList = new ArrayList<>();
 
-                for(DashboardDetails item : details){
+                for (DashboardDetails item : details) {
                     if (item.getFrom_user_name().toLowerCase().contains(editable.toString().toLowerCase())) {
                         filteredList.add(item);
                     }
@@ -158,15 +157,15 @@ public class DashDetailsActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.homeId:
-                        startActivity(new Intent(DashDetailsActivity.this,MainActivity.class));
+                        startActivity(new Intent(DashDetailsActivity.this, MainActivity.class));
                         return true;
                     case R.id.orderId:
-                        startActivity(new Intent(DashDetailsActivity.this,OrderActivity.class));
+                        startActivity(new Intent(DashDetailsActivity.this, OrderActivity.class));
                         return true;
                     case R.id.cartId:
-                        startActivity(new Intent(DashDetailsActivity.this,CartActivity.class));
+                        startActivity(new Intent(DashDetailsActivity.this, CartActivity.class));
                 }
                 return false;
             }
@@ -176,20 +175,20 @@ public class DashDetailsActivity extends AppCompatActivity {
     private void memberShowing() {
 
         Intent intent = getIntent();
-        int type = intent.getIntExtra("type",0);
+        int type = intent.getIntExtra("type", 0);
 
-        sharedPreferences = this.getSharedPreferences("Customer_Id",MODE_PRIVATE);
-        int id = sharedPreferences.getInt("cust_id",0);
+        sharedPreferences = this.getSharedPreferences("Customer_Id", MODE_PRIVATE);
+        int id = sharedPreferences.getInt("cust_id", 0);
 
-        if (type==1){
+        if (type == 1) {
             Call<List<DashboardDetails>> call = api.getDetails(id,type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
                             return;
-                        }else{
+                        } else {
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
@@ -197,6 +196,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
                     //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -204,15 +204,15 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
             });
         }
-        if (type==5){
-            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+        if (type == 5) {
+            Call<List<DashboardDetails>> call = api.getDetails(id, type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
                             return;
-                        }else{
+                        } else {
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
@@ -220,22 +220,23 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                   // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
         }
-        if (type==6){
-            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+        if (type == 6) {
+            Call<List<DashboardDetails>> call = api.getDetails(id, type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
                             return;
-                        }else{
+                        } else {
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
@@ -243,6 +244,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
                     //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -250,15 +252,15 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
             });
         }
-        if (type==7){
-            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+        if (type == 7) {
+            Call<List<DashboardDetails>> call = api.getDetails(id, type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
                             return;
-                        }else{
+                        } else {
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
@@ -266,6 +268,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
                     //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -273,15 +276,15 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
             });
         }
-        if (type==8){
-            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+        if (type == 8) {
+            Call<List<DashboardDetails>> call = api.getDetails(id, type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
                             return;
-                        }else{
+                        } else {
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
@@ -289,22 +292,23 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                   // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
         }
-        if (type==9){
-            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+        if (type == 9) {
+            Call<List<DashboardDetails>> call = api.getDetails(id, type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
                             return;
-                        }else{
+                        } else {
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
@@ -312,22 +316,23 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                   // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });
         }
-        if (type==10){
-            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+        if (type == 10) {
+            Call<List<DashboardDetails>> call = api.getDetails(id, type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
                             return;
-                        }else{
+                        } else {
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
@@ -335,21 +340,22 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
                     //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        if (type==12){
-            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+        if (type == 12) {
+            Call<List<DashboardDetails>> call = api.getDetails(id, type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()){
-                        if (response.body()==null){
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
                             return;
-                        }else{
+                        } else {
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
@@ -357,6 +363,7 @@ public class DashDetailsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
                     //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -364,6 +371,8 @@ public class DashDetailsActivity extends AppCompatActivity {
             });
 
         }
+
     }
+
 
 }

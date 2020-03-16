@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.gson.JsonArray;
 import com.my.zhomprass_java.Activities.DashDetailsActivity;
+import com.my.zhomprass_java.Activities.GenerationActivity;
 import com.my.zhomprass_java.Activities.Signin;
 import com.my.zhomprass_java.Activities.ZplDetailsActivity;
 import com.my.zhomprass_java.ForApi.ApiInterface;
@@ -131,6 +132,13 @@ public class DashboardFragment extends Fragment {
                 Intent intent = new Intent(getContext(), DashDetailsActivity.class);
                 intent.putExtra("type", 1);
                 startActivity(intent);
+            }
+        });
+
+        generationcardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), GenerationActivity.class));
             }
         });
 
