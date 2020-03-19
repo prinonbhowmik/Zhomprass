@@ -58,6 +58,7 @@ public class ShopActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         cartProducts = new ArrayList<>();
         helper = new DatabaseHelper(this);

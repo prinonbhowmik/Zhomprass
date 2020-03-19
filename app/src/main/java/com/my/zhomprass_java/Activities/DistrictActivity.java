@@ -155,4 +155,13 @@ public class DistrictActivity extends AppCompatActivity {
             Snackbar.make(findViewById(R.id.layoutDistrictActivity), R.string.offline_message, Snackbar.LENGTH_LONG).show();
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
 }

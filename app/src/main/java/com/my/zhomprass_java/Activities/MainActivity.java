@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.getMenu().removeItem(R.id.signIn);
         }
 
+
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
