@@ -42,6 +42,7 @@ public class DivisionListAdapter extends RecyclerView.Adapter<DivisionListAdapte
         final Division list = division.get(position);
 
         holder.textView.setText(list.getName());
+        holder.total_shop.setText("("+String.valueOf(list.getTotal_shop())+")");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,12 +65,14 @@ public class DivisionListAdapter extends RecyclerView.Adapter<DivisionListAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
+        private TextView total_shop;
         private CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.catagoryNameId);
             cardView = itemView.findViewById(R.id.cardView);
+            total_shop = itemView.findViewById(R.id.total_shop);
         }
     }
 }

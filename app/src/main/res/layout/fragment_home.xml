@@ -123,11 +123,9 @@
                         <androidx.viewpager.widget.ViewPager
                             android:id="@+id/productdetails_viewPager"
                             android:layout_width="match_parent"
-                            android:layout_height="600dp"
+                            android:layout_height="680dp"
 
-                            >
-
-                        </androidx.viewpager.widget.ViewPager>
+                            />
 
                     </RelativeLayout>
 

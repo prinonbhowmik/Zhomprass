@@ -41,6 +41,7 @@ public class ThanaListAdapter extends RecyclerView.Adapter<ThanaListAdapter.View
         final Thana thana = list.get(position);
 
         holder.textView.setText(thana.getName());
+        holder.total_shop.setText("("+String.valueOf(thana.getTotal_shop())+")");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +63,7 @@ public class ThanaListAdapter extends RecyclerView.Adapter<ThanaListAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView;
+        private TextView total_shop;
         private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -69,6 +71,7 @@ public class ThanaListAdapter extends RecyclerView.Adapter<ThanaListAdapter.View
 
 
             textView = itemView.findViewById(R.id.catagoryNameId);
+            total_shop = itemView.findViewById(R.id.total_shop);
             cardView=itemView.findViewById(R.id.cardView);
         }
     }

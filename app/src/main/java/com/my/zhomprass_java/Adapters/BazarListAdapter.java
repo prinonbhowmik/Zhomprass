@@ -41,6 +41,8 @@ public class BazarListAdapter extends RecyclerView.Adapter<BazarListAdapter.View
         final Bazar bazar = list.get(position);
 
         holder.textView.setText(bazar.getName());
+        holder.total_shop.setText("("+String.valueOf(bazar.getTotal_shop())+")");
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,12 +64,14 @@ public class BazarListAdapter extends RecyclerView.Adapter<BazarListAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView;
+        private TextView total_shop;
         private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.catagoryNameId);
+            total_shop = itemView.findViewById(R.id.total_shop);
             cardView=itemView.findViewById(R.id.cardView);
         }
     }

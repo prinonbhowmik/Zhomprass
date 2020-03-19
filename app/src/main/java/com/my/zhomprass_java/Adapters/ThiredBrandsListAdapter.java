@@ -43,7 +43,7 @@ public class ThiredBrandsListAdapter extends RecyclerView.Adapter<ThiredBrandsLi
         final ThiredBrandList brand = list.get(position);
 
         Glide.with(context).load(Config.IMAGE_LINE+brand.getImage()).into(holder.imageView);
-
+        holder.total_product.setText("("+String.valueOf(brand.getTotal_product())+")");
         holder.textView.setText(brand.getBrand_name());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +64,7 @@ public class ThiredBrandsListAdapter extends RecyclerView.Adapter<ThiredBrandsLi
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView;
+        private TextView total_product;
         private ImageView imageView;
         private CardView cardView;
 
@@ -72,6 +73,7 @@ public class ThiredBrandsListAdapter extends RecyclerView.Adapter<ThiredBrandsLi
 
             imageView = itemView.findViewById(R.id.catagoryImage);
             textView = itemView.findViewById(R.id.catagoryNameId);
+            total_product = itemView.findViewById(R.id.total_product);
             cardView = itemView.findViewById(R.id.catagoryCardview);
         }
     }

@@ -9,8 +9,9 @@ public class SubBrandList {
     private int position;
     private boolean status;
     private String image;
+    private int total_product;
 
-    public SubBrandList(int id, int cat_id, int sub_cat_id, int third_cat_id, String brand_name, int position, boolean status, String image) {
+    public SubBrandList(int id, int cat_id, int sub_cat_id, int third_cat_id, String brand_name, int position, boolean status, String image, int total_product) {
         this.id = id;
         this.cat_id = cat_id;
         this.sub_cat_id = sub_cat_id;
@@ -19,6 +20,7 @@ public class SubBrandList {
         this.position = position;
         this.status = status;
         this.image = image;
+        this.total_product = total_product;
     }
 
     public int getId() {
@@ -51,5 +53,9 @@ public class SubBrandList {
 
     public String getImage() {
         return image;
+    }
+
+    public int getTotal_product() {
+        return total_product;
     }
 }

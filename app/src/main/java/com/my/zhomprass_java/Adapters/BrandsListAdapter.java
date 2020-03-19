@@ -45,6 +45,7 @@ public class BrandsListAdapter extends RecyclerView.Adapter<BrandsListAdapter.Vi
 
         Glide.with(context).load(Config.IMAGE_LINE+brand.getImage()).centerCrop().fitCenter().into(holder.imageView);
         holder.textView.setText(brand.getBrand_name());
+        holder.total_product.setText("("+String.valueOf(brand.getTotal_product())+")");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +68,7 @@ public class BrandsListAdapter extends RecyclerView.Adapter<BrandsListAdapter.Vi
 
         private ImageView imageView;
         private TextView textView;
+        private TextView total_product;
         private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -74,6 +76,7 @@ public class BrandsListAdapter extends RecyclerView.Adapter<BrandsListAdapter.Vi
 
             imageView = itemView.findViewById(R.id.catagoryImage);
             textView = itemView.findViewById(R.id.catagoryNameId);
+            total_product = itemView.findViewById(R.id.total_product);
             cardView = itemView.findViewById(R.id.catagoryCardview);
         }
     }

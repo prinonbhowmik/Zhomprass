@@ -46,6 +46,7 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListAdapter.ViewHo
                 final ShopList shop = list.get(position);
 
                 holder.textView.setText(shop.getShop_name());
+                holder.total_product.setText("("+String.valueOf(shop.getTotal_product())+")");
                 holder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -69,12 +70,14 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView;
+        private TextView total_product;
         private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.catagoryNameId);
+            total_product = itemView.findViewById(R.id.total_shop);
             cardView=itemView.findViewById(R.id.cardView);
         }
     }
