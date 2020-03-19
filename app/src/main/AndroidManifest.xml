@@ -25,6 +25,7 @@
         <activity android:name=".Activities.TreeView" />
         <activity android:name=".Activities.Customer" />
         <activity android:name=".Activities.SearchActivity" />
+        <activity android:name=".Activities.GenerationActivity" />
         <activity android:name=".Activities.CartActivity" />
         <activity android:name=".Activities.OrderActivity" />
         <activity android:name=".Activities.ZoomImageActivity" />
