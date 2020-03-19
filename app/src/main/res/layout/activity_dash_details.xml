@@ -129,6 +129,16 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_below="@id/tableHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/tableHeader"
         android:layout_width="match_parent"

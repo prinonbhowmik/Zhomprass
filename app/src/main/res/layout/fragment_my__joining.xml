@@ -14,8 +14,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/customerjoingrecycler"
         android:padding="10dp"
-        android:layout_margin="10dp"
-        tools:ignore="MissingConstraints" />
+
+        tools:ignore="MissingConstraints"
+        android:layout_marginBottom="60dp"/>
 
 
 </RelativeLayout>

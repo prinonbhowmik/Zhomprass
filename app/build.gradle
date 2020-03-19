@@ -11,6 +11,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,6 +35,9 @@ dependencies {
     implementation 'com.michaelgarnerdev.materialsearchview:materialsearchview:0.1.0@aar'
     implementation 'com.shreyaspatil:MaterialNavigationView:1.1'
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    //retrofit
+    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
 
@@ -52,7 +56,7 @@ dependencies {
     //SnackBar
     implementation 'com.android.support:appcompat-v7:29.0.0'
     implementation 'com.android.support:design:29.0.0'
-
+    implementation 'com.android.support:multidex:1.0.3'
 
     //Room Database Dependency
     // implementation "android.arch.persistence.room:runtime:1.0.0"

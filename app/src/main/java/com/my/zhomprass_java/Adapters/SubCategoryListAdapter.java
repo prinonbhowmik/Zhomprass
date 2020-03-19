@@ -45,6 +45,7 @@ public class SubCategoryListAdapter extends RecyclerView.Adapter<SubCategoryList
         final SubCategoryList categoryList = list.get(position);
         Glide.with(context).load(Config.IMAGE_LINE+categoryList.getImage()).centerCrop().fitCenter().into(holder.imageView);
         holder.textView.setText(categoryList.getSub_category_name());
+        holder.total_product.setText("("+String.valueOf(categoryList.getTotal_product())+")");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +70,7 @@ public class SubCategoryListAdapter extends RecyclerView.Adapter<SubCategoryList
 
         private ImageView imageView;
         private TextView textView;
+        private TextView total_product;
         private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -76,6 +78,7 @@ public class SubCategoryListAdapter extends RecyclerView.Adapter<SubCategoryList
 
             imageView = itemView.findViewById(R.id.catagoryImage);
             textView = itemView.findViewById(R.id.catagoryNameId);
+            total_product = itemView.findViewById(R.id.total_product);
             cardView = itemView.findViewById(R.id.catagoryCardview);
         }
     }

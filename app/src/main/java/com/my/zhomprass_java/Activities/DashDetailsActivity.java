@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ import retrofit2.Response;
 public class DashDetailsActivity extends AppCompatActivity {
 
     List<DashboardDetails> details;
+    private ProgressBar progressBar;
     RecyclerView dashRecycler;
     DashboardDetailsAdapter adapter;
     private EditText search;
@@ -66,6 +68,7 @@ public class DashDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dash_details);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        progressBar = findViewById(R.id.progressBar);
         details = new ArrayList<>();
         dashRecycler = findViewById(R.id.dashRecycler);
         dashRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -91,13 +94,10 @@ public class DashDetailsActivity extends AppCompatActivity {
                 textView.setText(String.valueOf(i));
             }
         }
-
-
         itemView.addView(notificationBadge);
 
         memberShowing();
         bottomNav();
-        searchData();
         checkConnection();
 
 
@@ -121,35 +121,38 @@ public class DashDetailsActivity extends AppCompatActivity {
     }
 
     private void searchData() {
-        search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+      if (search!=null){
+          search.addTextChangedListener(new TextWatcher() {
+              @Override
+              public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
+              }
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+              @Override
+              public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
+              }
 
-            @Override
-            public void afterTextChanged(Editable editable) {
-                ArrayList<DashboardDetails> filteredList = new ArrayList<>();
+              @Override
+              public void afterTextChanged(Editable editable) {
+                  ArrayList<DashboardDetails> filteredList = new ArrayList<>();
 
-                for (DashboardDetails item : details) {
-                    if (item.getFrom_user_name().toLowerCase().contains(editable.toString().toLowerCase())) {
-                        filteredList.add(item);
-                    }
-                    if (item.getBalance().toLowerCase().contains(editable.toString().toLowerCase())) {
-                        filteredList.add(item);
-                    }
-                    if (item.getDate().toLowerCase().contains(editable.toString().toLowerCase())) {
-                        filteredList.add(item);
-                    }
-                }
-                adapter.filterList(filteredList);
-            }
-        });
+
+                  for (DashboardDetails item : details) {
+                      if (item.getFrom_user_name().toLowerCase().contains(editable.toString().toLowerCase())) {
+                          filteredList.add(item);
+                      }
+                      if (item.getBalance().toLowerCase().contains(editable.toString().toLowerCase())) {
+                          filteredList.add(item);
+                      }
+                      if (item.getDate().toLowerCase().contains(editable.toString().toLowerCase())) {
+                          filteredList.add(item);
+                      }
+                  }
+                  adapter.filterList(filteredList);
+              }
+          });
+      }
     }
 
     private void bottomNav() {
@@ -180,30 +183,6 @@ public class DashDetailsActivity extends AppCompatActivity {
         sharedPreferences = this.getSharedPreferences("Customer_Id", MODE_PRIVATE);
         int id = sharedPreferences.getInt("cust_id", 0);
 
-        if (type == 1) {
-            Call<List<DashboardDetails>> call = api.getDetails(id,type);
-            call.enqueue(new Callback<List<DashboardDetails>>() {
-                @Override
-                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
-                    if (response.isSuccessful()) {
-                        if (response.body() == null) {
-                            return;
-                        } else {
-                            details = response.body();
-                            adapter = new DashboardDetailsAdapter(details);
-                            dashRecycler.setAdapter(adapter);
-                            adapter.notifyDataSetChanged();
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
-                    //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-
-                }
-            });
-        }
         if (type == 5) {
             Call<List<DashboardDetails>> call = api.getDetails(id, type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
@@ -213,10 +192,13 @@ public class DashDetailsActivity extends AppCompatActivity {
                         if (response.body() == null) {
                             return;
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
+
+                            searchData();
                         }
                     }
                 }
@@ -237,10 +219,13 @@ public class DashDetailsActivity extends AppCompatActivity {
                         if (response.body() == null) {
                             return;
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
+
+                            searchData();
                         }
                     }
                 }
@@ -261,10 +246,13 @@ public class DashDetailsActivity extends AppCompatActivity {
                         if (response.body() == null) {
                             return;
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
+
+                            searchData();
                         }
                     }
                 }
@@ -285,10 +273,13 @@ public class DashDetailsActivity extends AppCompatActivity {
                         if (response.body() == null) {
                             return;
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
+
+                            searchData();
                         }
                     }
                 }
@@ -309,10 +300,13 @@ public class DashDetailsActivity extends AppCompatActivity {
                         if (response.body() == null) {
                             return;
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
+
+                            searchData();
                         }
                     }
                 }
@@ -320,7 +314,6 @@ public class DashDetailsActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
                     // Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-
                 }
             });
         }
@@ -333,10 +326,13 @@ public class DashDetailsActivity extends AppCompatActivity {
                         if (response.body() == null) {
                             return;
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
+
+                            searchData();
                         }
                     }
                 }
@@ -348,7 +344,7 @@ public class DashDetailsActivity extends AppCompatActivity {
             });
         }
         if (type == 12) {
-            Call<List<DashboardDetails>> call = api.getDetails(id, type);
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
             call.enqueue(new Callback<List<DashboardDetails>>() {
                 @Override
                 public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
@@ -356,10 +352,13 @@ public class DashDetailsActivity extends AppCompatActivity {
                         if (response.body() == null) {
                             return;
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             details = response.body();
                             adapter = new DashboardDetailsAdapter(details);
                             dashRecycler.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
+
+                            searchData();
                         }
                     }
                 }
@@ -370,6 +369,33 @@ public class DashDetailsActivity extends AppCompatActivity {
                 }
             });
 
+        }
+        if (type == 1) {
+            Call<List<DashboardDetails>> call = api.getDetails(id,type);
+            call.enqueue(new Callback<List<DashboardDetails>>() {
+                @Override
+                public void onResponse(Call<List<DashboardDetails>> call, Response<List<DashboardDetails>> response) {
+                    if (response.isSuccessful()) {
+                        if (response.body() == null) {
+                            return;
+                        } else {
+                            progressBar.setVisibility(View.GONE);
+                            details = response.body();
+                            adapter = new DashboardDetailsAdapter(details);
+                            dashRecycler.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+
+                            searchData();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<DashboardDetails>> call, Throwable t) {
+                    //Toast.makeText(DashDetailsActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
         }
 
     }

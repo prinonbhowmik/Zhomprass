@@ -8,6 +8,18 @@ public class ThiredCategoryList {
     private int position;
     private boolean status;
     private String image;
+    private int total_product;
+
+    public ThiredCategoryList(int id, int cat_id, int sub_cat_id, String sub_category_name, int position, boolean status, String image, int total_product) {
+        this.id = id;
+        this.cat_id = cat_id;
+        this.sub_cat_id = sub_cat_id;
+        this.sub_category_name = sub_category_name;
+        this.position = position;
+        this.status = status;
+        this.image = image;
+        this.total_product = total_product;
+    }
 
     public int getId() {
         return id;
@@ -37,13 +49,7 @@ public class ThiredCategoryList {
         return image;
     }
 
-    public ThiredCategoryList(int id, int cat_id, int sub_cat_id, String sub_category_name, int position, boolean status, String image) {
-        this.id = id;
-        this.cat_id = cat_id;
-        this.sub_cat_id = sub_cat_id;
-        this.sub_category_name = sub_category_name;
-        this.position = position;
-        this.status = status;
-        this.image = image;
+    public int getTotal_product() {
+        return total_product;
     }
 }

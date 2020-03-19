@@ -47,6 +47,7 @@ public class ThiredCategoryListAdapter extends RecyclerView.Adapter<ThiredCatego
 
         Glide.with(context).load(Config.IMAGE_LINE+third.getImage()).centerCrop().fitCenter().into(holder.imageView);
         holder.textView.setText(third.getSub_category_name());
+        holder.total_product.setText("("+String.valueOf(third.getTotal_product())+")");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +74,7 @@ public class ThiredCategoryListAdapter extends RecyclerView.Adapter<ThiredCatego
 
         private ImageView imageView;
         private TextView textView;
+        private TextView total_product;
         private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -80,6 +82,7 @@ public class ThiredCategoryListAdapter extends RecyclerView.Adapter<ThiredCatego
 
             imageView=itemView.findViewById(R.id.catagoryImage);
             textView=itemView.findViewById(R.id.catagoryNameId);
+            total_product=itemView.findViewById(R.id.total_product);
             cardView=itemView.findViewById(R.id.catagoryCardview);
 
         }
